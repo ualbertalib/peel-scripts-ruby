@@ -1,0 +1,24 @@
+# Logfile created on 2015-12-02 14:03:13 -0700 by logger.rb/47272
+I, [2015-12-02T14:03:13.461638 #18762]  INFO -- : Start Ingest the directory Shipment39/
+I, [2015-12-02T14:03:13.461662 #18762]  INFO -- : Start scanning the directory for virus
+I, [2015-12-02T14:03:13.905671 #18762]  INFO -- : Virus scanning completed, at 2015-12-02 21:03:13 UTC
+I, [2015-12-02T14:03:13.905712 #18762]  INFO -- : /home/wshi/Code/peel-scripts-ruby/Shipment39: OK
+
+----------- SCAN SUMMARY -----------
+Infected files: 0
+Time: 0.440 sec (0 m 0 s)
+
+[ClamAV 0.98.7/21126/Wed Dec  2 10:36:36 2015]
+I, [2015-12-02T14:03:13.905725 #18762]  INFO -- : Generating list of files within the directory Shipment39/
+E, [2015-12-02T14:03:14.377515 #18762] ERROR -- : Error when creating file list for Shipment39/
+I, [2015-12-02T14:03:14.377542 #18762]  INFO -- : Start to valid bags in the delivery
+I, [2015-12-02T14:03:14.377793 #18762]  INFO -- : Validate 4 bag directories in the delivery
+I, [2015-12-02T14:03:14.726668 #18762]  INFO -- : Directory Shipment39//N030739 is a valid bag
+I, [2015-12-02T14:03:15.085269 #18762]  INFO -- : Directory Shipment39//N030739 is a valid bag
+I, [2015-12-02T14:03:15.412133 #18762]  INFO -- : Directory Shipment39//N030736 is a valid bag
+I, [2015-12-02T14:03:15.740461 #18762]  INFO -- : Directory Shipment39//N030736 is a valid bag
+I, [2015-12-02T14:03:16.085855 #18762]  INFO -- : Directory Shipment39//N030737 is a valid bag
+I, [2015-12-02T14:03:16.444687 #18762]  INFO -- : Directory Shipment39//N030737 is a valid bag
+I, [2015-12-02T14:03:16.875010 #18762]  INFO -- : Directory Shipment39//N030738 is a valid bag
+I, [2015-12-02T14:03:17.277047 #18762]  INFO -- : Directory Shipment39//N030738 is a valid bag
+I, [2015-12-02T14:03:17.277093 #18762]  INFO -- : Checkin the delivery into the tracking database

@@ -1,0 +1,9 @@
+/home/wshi/.rbenv/versions/2.2.3/bin/ruby -r ./siteconf20151208-18596-4diogs.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install

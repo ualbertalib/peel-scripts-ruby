@@ -24,12 +24,14 @@ require 'ddr-antivirus'
   dryrun = opts[:dry_run]
   delivery = opts[:delivery]
   drive_id = opts[:drive_id]
+  properties = YAML.load_file('properties.yml')
+  temp_dir = properties['temp_dir']
   
   logfile = "log/ingest-#{last_dir}-#{timestamp}"
   logger = Logger.new(logfile)
   logger.info "Start Ingest the directory #{dir}"
   logger.info "Start scanning the directory for virus"
-
+=begin
   Ddr::Antivirus.scanner_adapter = :clamd
   result = Ddr::Antivirus.scan dir
 
@@ -63,18 +65,22 @@ require 'ddr-antivirus'
     next unless File.exist?(f)
     d = File.dirname(f)
     valid_bag = Bag.bagit_verify(d)
-    logger.info "Directory #{d} is a valid bag" if valid_bag
-    logger.error "Directory #{d} is not a valid bag, view log files for more detailed information" if !valid_bag
+    if valid_bag
+      logger.info "Directory #{d} is a valid bag" 
+      FileUtils.touch (d +'/bag_verified')
+    else 
+      logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
+      FileUtils.touch (d+'/bag_not_verified')
+    end
   end
-
+=end
   logger.info "Checkin the delivery into the tracking database"
 
   database_config = YAML.load_file('database.yml')
-  username = database_config[:username]
-  password = database_config[:password]
-  database = database_config[:database]
-  hostname = database_config[:hostname]
-
+  username = database_config['username']
+  password = database_config['password']
+  database = database_config['database']
+  hostname = database_config['hostname']
   connection = Mysql.new(hostname, username, password, database)
 
   if type == "newspaper"
@@ -82,13 +88,30 @@ require 'ddr-antivirus'
     Dir.glob("#{dir}/**/data/#{publication}*") do |d|
       item = File.basename(d)
       pagecount = Dir.glob("#{d}/**/*.jp2").count
-      delivery_date = Time.now
       year = item.split("_").last.split(//).first(4).join
       month = item.split("_").last.split(//).last(4).first(2).join
       date = item.split("_").last.split(//).last(2).join
       insert = "INSERT INTO newspapers_copy(newspaper, year, month, day, pages, delivery, delivery_disk, delivery_date) VALUES
-	(#{publication}, #{year}, #{month}, #{date}, #{pagecount}, #{delivery}, #{drive_id}, #{delivery_date})"
-      rs = connection.query(insert)
+	('#{publication}', #{year}, #{month}, #{date}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW())"
+      
+      begin
+	rs = connection.query(insert) unless dryrun
+      rescue Exception => e
+        raise e if /Mysql::Error: Duplicate entry/.match(e.to_s)
+      end
+
+      bagvalid = true if File.exist?('bag_verified')       
+     
+      if bagvalid
+   
+        Utils.tar(File.join(temp_dir, item, 'jp2.tar'), Bag.bagit_create(Dir["#{d}/**/*.jp2"], 'JP2'))
+        Utils.tar(File.join(temp_dir, item, 'alto.tar'), Bag.bagit_create(Dir["#{d}/**/*{[!-METS]}.xml"], 'ALTO'))
+        Utils.tar(File.join(temp_dir, item, 'mets.tar'), Bag.bagit_create(Dir["#{d}/**/*-METS.xml"], 'METS'))
+      else
+        logger.error "The target directory is not valid bag"
+      end
+
+      logger.info "Ready to ingest #{item} into OpenStack"
     end
   end
   connection.close

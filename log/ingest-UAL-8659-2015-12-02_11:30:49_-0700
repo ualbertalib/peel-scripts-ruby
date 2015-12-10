@@ -1,0 +1,3 @@
+# Logfile created on 2015-12-02 11:30:49 -0700 by logger.rb/47272
+I, [2015-12-02T11:30:49.590738 #28673]  INFO -- : Start Ingest the directory /media/wshi/My Book/UAL-8659/
+I, [2015-12-02T11:30:49.590761 #28673]  INFO -- : Start scanning the directory for virus
