@@ -1,0 +1,15 @@
+/home/wshi/.rbenv/versions/2.2.3/bin/ruby -r ./siteconf20151221-24033-1cjlu2e.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling context.c
+compiling breakpoint.c
+compiling locker.c
+compiling threads.c
+compiling byebug.c
+linking shared-object byebug/byebug.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20151221-24033-1af6wsj/byebug

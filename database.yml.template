@@ -1,0 +1,7 @@
+#This is the configuration for database connection
+---
+adapter: mysql2
+hostname: mysql_server.localhost.com 
+database: table_name
+username: user_name
+password: password

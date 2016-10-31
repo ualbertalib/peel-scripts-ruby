@@ -1,0 +1,7 @@
+#This is the general properties set for the processes
+---
+temp_dir: 'tmp'
+noid_minter: 'minter.location'
+openstack_token_url: ""
+openstack_credentials: ""
+openstack_swift_url: ""

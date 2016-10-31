@@ -1,0 +1,11 @@
+.DS_Store
+*~
+.#*
+\#*#
+*.gem
+tags
+vendor
+Gemfile.lock
+.bundle
+.project
+.idea

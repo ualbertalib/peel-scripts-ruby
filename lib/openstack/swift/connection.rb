@@ -1,6 +1,6 @@
 module OpenStack
   module Swift
-    class ChuckedConnectionWrapper
+    class ChunkedConnectionWrapper
       def read(length, out_str)
         s = @file.read(length)
         if s.nil?
