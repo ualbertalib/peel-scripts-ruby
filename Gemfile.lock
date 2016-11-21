@@ -4,6 +4,7 @@ GEM
     bagit (0.3.2)
       docopt (~> 0.5.0)
       validatable (~> 1.6)
+    clamd (1.0.1)
     coderay (1.1.0)
     curb (0.8.8)
     ddr-antivirus (2.1.1)
@@ -36,6 +37,7 @@ PLATFORMS
 
 DEPENDENCIES
   bagit
+  clamd
   curb
   ddr-antivirus
   digest
@@ -46,3 +48,6 @@ DEPENDENCIES
   pry
   slop (~> 3.0)
   validatable
+
+BUNDLED WITH
+   1.13.6

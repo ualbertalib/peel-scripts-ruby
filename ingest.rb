@@ -6,7 +6,7 @@ require 'bagit'
 
 
 def antivirus_scan(dir)
-  Ddr::Antivirus.scanner_adapter = :null # need to be update
+  Ddr::Antivirus.scanner_adapter = :clamd # need to be update
   result = Ddr::Antivirus.scan dir
 end
 # def antivirus_scan(path)

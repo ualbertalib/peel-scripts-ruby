@@ -1,0 +1,26 @@
+# Logfile created on 2016-11-18 12:27:54 -0700 by logger.rb/v1.2.7
+I, [2016-11-18T12:27:54.671149 #22147]  INFO -- : Start Ingest the directory /home/baihong/Documents/UAL-STE-0023
+I, [2016-11-18T12:27:54.671171 #22147]  INFO -- : Start scanning the directory for virus
+I, [2016-11-18T12:27:54.671207 #22147]  INFO -- : Virus scanning completed, at 2016-11-18 19:27:54 UTC
+I, [2016-11-18T12:27:54.671218 #22147]  INFO -- : /home/baihong/Documents/UAL-STE-0023: NOT SCANNED - using :null scanner adapter.
+[ddr-antivirus 2.1.1]
+I, [2016-11-18T12:27:54.671226 #22147]  INFO -- : Generating list of files within the directory /home/baihong/Documents/UAL-STE-0023
+E, [2016-11-18T12:27:55.110879 #22147] ERROR -- : Error when creating file list for /home/baihong/Documents/UAL-STE-0023
+I, [2016-11-18T12:27:55.110914 #22147]  INFO -- : Start to valid bags in the delivery
+I, [2016-11-18T12:27:55.111214 #22147]  INFO -- : Validate 15 bag directories in the delivery
+I, [2016-11-18T12:27:55.144085 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3 is a valid bag
+I, [2016-11-18T12:27:55.167034 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2 is a valid bag
+I, [2016-11-18T12:27:55.170347 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1 is a valid bag
+I, [2016-11-18T12:27:55.249707 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6 is a valid bag
+I, [2016-11-18T12:27:55.286222 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8 is a valid bag
+I, [2016-11-18T12:27:55.312454 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4 is a valid bag
+I, [2016-11-18T12:27:55.355287 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1 is a valid bag
+I, [2016-11-18T12:27:55.385172 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6 is a valid bag
+I, [2016-11-18T12:27:55.396394 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5 is a valid bag
+I, [2016-11-18T12:27:55.408098 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6 is a valid bag
+E, [2016-11-18T12:27:55.408420 #22147] ERROR -- : Directory /home/baihong/Documents/UAL-STE-0023 is not a valid bag, view log files for more detailed information
+I, [2016-11-18T12:27:55.437551 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3 is a valid bag
+I, [2016-11-18T12:27:55.459944 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13 is a valid bag
+I, [2016-11-18T12:27:55.475360 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2 is a valid bag
+I, [2016-11-18T12:27:55.538077 #22147]  INFO -- : Directory /home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2 is a valid bag
+I, [2016-11-18T12:27:55.538116 #22147]  INFO -- : Checkin the delivery into the tracking database

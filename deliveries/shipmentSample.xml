@@ -1,0 +1,1889 @@
+<?xml version="1.0"?>
+<root>
+  <files>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/bag_not_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3</path>
+      <filetype>text/plain</filetype>
+      <length>737</length>
+      <last_modified>2014-07-29 14:13:07 -0600</last_modified>
+      <md5>fe6c3f5fd94cc33406d43bea401ccf8a</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:07 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:07 -0600</last_modified>
+      <md5>deadb66b691f478c7441e7caa44f6a53</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO/2008.1.1.1.3.12.3-ALTO00005.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>36628</length>
+      <last_modified>2014-07-02 05:22:24 -0600</last_modified>
+      <md5>c7678d0afb7de03a9905c90248abf330</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO/2008.1.1.1.3.12.3-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>4415</length>
+      <last_modified>2014-07-02 05:22:23 -0600</last_modified>
+      <md5>b92a0be55225c087f45e54336c064619</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO/2008.1.1.1.3.12.3-ALTO00004.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>7237</length>
+      <last_modified>2014-07-02 05:22:23 -0600</last_modified>
+      <md5>0719ce324b344b3933a9bce41403d90e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO/2008.1.1.1.3.12.3-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>7716</length>
+      <last_modified>2014-07-02 05:22:23 -0600</last_modified>
+      <md5>cca3504042552a0b952b5977f6b43150</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO/2008.1.1.1.3.12.3-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>5412</length>
+      <last_modified>2014-07-02 05:22:23 -0600</last_modified>
+      <md5>b2d5964c4077c8d468c06729116c5d0e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/2008.1.1.1.3.12.3-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data</path>
+      <filetype>application/xml</filetype>
+      <length>23802</length>
+      <last_modified>2014-07-02 05:22:25 -0600</last_modified>
+      <md5>22b138d6f40863400319b7ff2e2217cc</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG/00000004.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>2962295</length>
+      <last_modified>2014-07-02 05:22:18 -0600</last_modified>
+      <md5>75c21a78d6996897153abfd5ad9d70c2</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>2919150</length>
+      <last_modified>2014-07-02 05:22:11 -0600</last_modified>
+      <md5>afc274828f6cc3cd27cb6af6ffba9f5f</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5252445</length>
+      <last_modified>2014-07-02 05:22:17 -0600</last_modified>
+      <md5>367ee673022e7613219dfdb70c60b05c</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5341268</length>
+      <last_modified>2014-07-02 05:22:14 -0600</last_modified>
+      <md5>377b337df04ceb0e03ee73a17b4ebc12</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG/00000005.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5324110</length>
+      <last_modified>2014-07-02 05:22:21 -0600</last_modified>
+      <md5>ca1e119087ef3b83df3d56daba7868c7</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.3</path>
+      <filetype>text/plain</filetype>
+      <length>72</length>
+      <last_modified>2014-07-29 14:13:07 -0600</last_modified>
+      <md5>40cd7885a70e7afde740c24a8b0d7e74</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2</path>
+      <filetype>text/plain</filetype>
+      <length>461</length>
+      <last_modified>2014-07-29 14:13:31 -0600</last_modified>
+      <md5>0c919999c591c70d3f35db1734fc53e1</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:30 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:31 -0600</last_modified>
+      <md5>222aaac3badec8c8c73ee331b279addf</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/ALTO/2008.1.1.4.32.2-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>46947</length>
+      <last_modified>2014-07-02 05:42:11 -0600</last_modified>
+      <md5>7cf508a2a3aed0361c23989e9f1f586c</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/ALTO/2008.1.1.4.32.2-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>32291</length>
+      <last_modified>2014-07-02 05:42:12 -0600</last_modified>
+      <md5>855e60a10957a0607e27fcc4ee3af850</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/ALTO/2008.1.1.4.32.2-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>10285</length>
+      <last_modified>2014-07-02 05:42:12 -0600</last_modified>
+      <md5>c40b210ad3d117a5c63a13ac3f9b8b12</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/2008.1.1.4.32.2-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data</path>
+      <filetype>application/xml</filetype>
+      <length>15322</length>
+      <last_modified>2014-07-02 05:42:12 -0600</last_modified>
+      <md5>5e7d99fc61bfb07e909a7a1ba7711df8</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>6456463</length>
+      <last_modified>2014-07-02 05:42:07 -0600</last_modified>
+      <md5>fec4630f1719798ee9f7450643b58653</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>2519139</length>
+      <last_modified>2014-07-02 05:42:11 -0600</last_modified>
+      <md5>f142fc7eaabcd88eeaa1b308e5034a81</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>6611537</length>
+      <last_modified>2014-07-02 05:42:10 -0600</last_modified>
+      <md5>39ca740e01d0ef243b282ee91d91df35</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.2</path>
+      <filetype>text/plain</filetype>
+      <length>69</length>
+      <last_modified>2014-07-29 14:13:31 -0600</last_modified>
+      <md5>f25a44c17ff8d45f7e22dc51d2262281</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1</path>
+      <filetype>text/plain</filetype>
+      <length>195</length>
+      <last_modified>2014-07-29 14:13:24 -0600</last_modified>
+      <md5>adb5a056ef194823fb03773b91dd5764</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:24 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:24 -0600</last_modified>
+      <md5>720ddb0ec18079cc4dead8faa7cdcc75</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data/2008.1.1.2.5.1-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data</path>
+      <filetype>application/xml</filetype>
+      <length>7132</length>
+      <last_modified>2014-07-02 05:41:00 -0600</last_modified>
+      <md5>c1b61c3c81078b8529542fd35a68a67c</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data/ALTO/2008.1.1.2.5.1-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>8220</length>
+      <last_modified>2014-07-02 05:41:00 -0600</last_modified>
+      <md5>01d772cabd73db89940d65b51254ff1e</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>2023545</length>
+      <last_modified>2014-07-02 05:40:58 -0600</last_modified>
+      <md5>c47483872bd555a444ab993dbc6cf9a0</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.2.5.1</path>
+      <filetype>text/plain</filetype>
+      <length>69</length>
+      <last_modified>2014-07-29 14:13:24 -0600</last_modified>
+      <md5>8da42ced86fbc2c12676cbcaf8290a3f</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6</path>
+      <filetype>text/plain</filetype>
+      <length>1541</length>
+      <last_modified>2014-07-29 14:13:15 -0600</last_modified>
+      <md5>3a37c59464b62bbaeed6450a4682621a</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:15 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:15 -0600</last_modified>
+      <md5>31b7588e6cea56d296a83332c8f7a247</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00004.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>14823</length>
+      <last_modified>2014-07-02 05:40:52 -0600</last_modified>
+      <md5>dc149d9400d65d6afb3a89e17568d5fe</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>22319</length>
+      <last_modified>2014-07-02 05:40:52 -0600</last_modified>
+      <md5>0fe75b0290956e2ea730b9624245daf8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00011.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>10107</length>
+      <last_modified>2014-07-02 05:40:53 -0600</last_modified>
+      <md5>b9afd923cae4f44389f1e56ea47b1acd</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>21327</length>
+      <last_modified>2014-07-02 05:40:52 -0600</last_modified>
+      <md5>b7cfaa1d6b1e3b7bd351729d497a8d28</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00007.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>53358</length>
+      <last_modified>2014-07-02 05:40:52 -0600</last_modified>
+      <md5>d9b15bedaa558dc3c0701740188d00de</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00009.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>55236</length>
+      <last_modified>2014-07-02 05:40:53 -0600</last_modified>
+      <md5>51f9bea1bfa0dd629b6e49d2c3090a39</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00008.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>57907</length>
+      <last_modified>2014-07-02 05:40:53 -0600</last_modified>
+      <md5>1bc807f34448bea17d7859a8c291d1a8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00006.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>8815</length>
+      <last_modified>2014-07-02 05:40:52 -0600</last_modified>
+      <md5>6179c8d082e5aa07e32dd626945614ba</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00005.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>13211</length>
+      <last_modified>2014-07-02 05:40:52 -0600</last_modified>
+      <md5>bd9ee0eedab9d5bec02b1d033540f661</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00010.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>64527</length>
+      <last_modified>2014-07-02 05:40:53 -0600</last_modified>
+      <md5>883107e18e04dbcc46d2bbfac8e5546b</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO/2008.1.1.1.3.12.6-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>24999</length>
+      <last_modified>2014-07-02 05:40:52 -0600</last_modified>
+      <md5>7bf0978629d8f405ad797915a9a305fa</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/2008.1.1.1.3.12.6-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data</path>
+      <filetype>application/xml</filetype>
+      <length>47752</length>
+      <last_modified>2014-07-02 05:40:55 -0600</last_modified>
+      <md5>0d16955557029e7ea8d4ae1dcffb8a6a</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000007.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>6994007</length>
+      <last_modified>2014-07-02 05:40:37 -0600</last_modified>
+      <md5>4739247153e25ebdaf451f099272ac6e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000004.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>3399919</length>
+      <last_modified>2014-07-02 05:40:29 -0600</last_modified>
+      <md5>fa26d70a9d900059dbe74b38f2986bd2</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>3261505</length>
+      <last_modified>2014-07-02 05:40:24 -0600</last_modified>
+      <md5>5a3dfe927a924759ebce0aa8e1414a8f</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000006.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>3320064</length>
+      <last_modified>2014-07-02 05:40:33 -0600</last_modified>
+      <md5>eb9fe786b3ee79a7be5e1ba2e9ce1d42</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000010.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>6927894</length>
+      <last_modified>2014-07-02 05:40:47 -0600</last_modified>
+      <md5>d7d7628ea0ec3589198df8b6b1246f1f</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>3303159</length>
+      <last_modified>2014-07-02 05:40:28 -0600</last_modified>
+      <md5>42736588015d83549d9547f22faac0f7</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000008.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>6929315</length>
+      <last_modified>2014-07-02 05:40:41 -0600</last_modified>
+      <md5>6c7e8410e3dece6f6b6e50e911a8aa43</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000011.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>7056690</length>
+      <last_modified>2014-07-02 05:40:50 -0600</last_modified>
+      <md5>fc000411f7c2b68514a94cccabd908d4</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>3283157</length>
+      <last_modified>2014-07-02 05:40:26 -0600</last_modified>
+      <md5>f604a3c670a8d9e74dbeaa646611ce48</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000005.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>3318244</length>
+      <last_modified>2014-07-02 05:40:31 -0600</last_modified>
+      <md5>96fec0f29ca00ebfd4f1ff4f256b71db</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG/00000009.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>6978678</length>
+      <last_modified>2014-07-02 05:40:44 -0600</last_modified>
+      <md5>2c0a5253bed9b3802dee0efda3ae3d1f</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.6</path>
+      <filetype>text/plain</filetype>
+      <length>72</length>
+      <last_modified>2014-07-29 14:13:15 -0600</last_modified>
+      <md5>1dc2689ad34ed7b081e2c62191a1f95e</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8</path>
+      <filetype>text/plain</filetype>
+      <length>737</length>
+      <last_modified>2014-07-29 14:13:21 -0600</last_modified>
+      <md5>8b20cc5f7f2b9514d7a56403610d2dd5</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:21 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:21 -0600</last_modified>
+      <md5>822cfff92a797b9ff1188925bc93e8c2</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO/2008.1.1.1.3.12.8-ALTO00005.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>6893</length>
+      <last_modified>2014-07-02 05:40:39 -0600</last_modified>
+      <md5>a11559b9463f88cc470e2df207ed6c26</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO/2008.1.1.1.3.12.8-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>18401</length>
+      <last_modified>2014-07-02 05:40:39 -0600</last_modified>
+      <md5>8adfb977e3984b72d7fdea936767c79b</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO/2008.1.1.1.3.12.8-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>25167</length>
+      <last_modified>2014-07-02 05:40:39 -0600</last_modified>
+      <md5>09bea05c0c0dd77fb7fd573f062d8a17</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO/2008.1.1.1.3.12.8-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>7494</length>
+      <last_modified>2014-07-02 05:40:39 -0600</last_modified>
+      <md5>017e77917bc506107e956d1927d9f86a</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO/2008.1.1.1.3.12.8-ALTO00004.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>26960</length>
+      <last_modified>2014-07-02 05:40:39 -0600</last_modified>
+      <md5>706ee007f2e77951bc57a99853518d33</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/2008.1.1.1.3.12.8-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data</path>
+      <filetype>application/xml</filetype>
+      <length>23640</length>
+      <last_modified>2014-07-02 05:40:41 -0600</last_modified>
+      <md5>ff18a3d52af64b869493729ef949bae1</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG/00000004.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5838034</length>
+      <last_modified>2014-07-02 05:40:38 -0600</last_modified>
+      <md5>71e5e1cf4591620436bbcd31540adc3b</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5834897</length>
+      <last_modified>2014-07-02 05:40:28 -0600</last_modified>
+      <md5>6588c88cb4542ea3f94c0b4f26ed7c71</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5835541</length>
+      <last_modified>2014-07-02 05:40:35 -0600</last_modified>
+      <md5>62de0b92a6a927a7f568fbf86350f5d5</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5817791</length>
+      <last_modified>2014-07-02 05:40:32 -0600</last_modified>
+      <md5>b24a9c4edd8bcf1045e78cd30cf2b923</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG/00000005.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>1836692</length>
+      <last_modified>2014-07-02 05:40:39 -0600</last_modified>
+      <md5>1a28e2d8bf79800e96bda58100663830</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.8</path>
+      <filetype>text/plain</filetype>
+      <length>72</length>
+      <last_modified>2014-07-29 14:13:21 -0600</last_modified>
+      <md5>0b665a94ba3d522dec5ed320eef6c2e1</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4</path>
+      <filetype>text/plain</filetype>
+      <length>871</length>
+      <last_modified>2014-07-29 14:13:10 -0600</last_modified>
+      <md5>9f75253c3845753b4fa5b6634cb8486e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:10 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:10 -0600</last_modified>
+      <md5>2eab3348db797d51b9737598d9efe6ae</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO/2008.1.1.1.3.12.4-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>5469</length>
+      <last_modified>2014-07-02 05:39:17 -0600</last_modified>
+      <md5>0937061f694823d1d20bc4e1212d5df9</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO/2008.1.1.1.3.12.4-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>19774</length>
+      <last_modified>2014-07-02 05:39:17 -0600</last_modified>
+      <md5>6a17312753c235770190fcd0be5e1ab6</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO/2008.1.1.1.3.12.4-ALTO00004.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>4140</length>
+      <last_modified>2014-07-02 05:39:17 -0600</last_modified>
+      <md5>76d2f6afaa614c9152e5d8910ca69b50</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO/2008.1.1.1.3.12.4-ALTO00005.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>8007</length>
+      <last_modified>2014-07-02 05:39:17 -0600</last_modified>
+      <md5>6c15d1242d76535ef3d8f07de1138342</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO/2008.1.1.1.3.12.4-ALTO00006.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>8196</length>
+      <last_modified>2014-07-02 05:39:18 -0600</last_modified>
+      <md5>e5e7d9871a2d4d54602db28c233ed082</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO/2008.1.1.1.3.12.4-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>6840</length>
+      <last_modified>2014-07-02 05:39:17 -0600</last_modified>
+      <md5>69cc5f2f74668105a811cb3b7b06ba45</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG/00000004.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>2375883</length>
+      <last_modified>2014-07-02 05:39:14 -0600</last_modified>
+      <md5>20f3d5baf84c0d762661dd192c72623f</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>2331028</length>
+      <last_modified>2014-07-02 05:39:10 -0600</last_modified>
+      <md5>1c4ef4a07a47a0d7d33489369f673939</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG/00000006.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>4301413</length>
+      <last_modified>2014-07-02 05:39:17 -0600</last_modified>
+      <md5>fe2451e0d77842d5f41d43a322180a92</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>4228154</length>
+      <last_modified>2014-07-02 05:39:13 -0600</last_modified>
+      <md5>19525797cc8aec7c40a97c33888f28b3</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>2343281</length>
+      <last_modified>2014-07-02 05:39:11 -0600</last_modified>
+      <md5>5ccec92ce810f6b1c4f90a0d1697c0a6</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG/00000005.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>2357945</length>
+      <last_modified>2014-07-02 05:39:15 -0600</last_modified>
+      <md5>61159422abb0f1f8c167bcedd4fbe50f</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data/2008.1.1.1.3.12.4-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/data</path>
+      <filetype>application/xml</filetype>
+      <length>27808</length>
+      <last_modified>2014-07-02 05:39:19 -0600</last_modified>
+      <md5>4158ddd215b67ae30b89d989db4eb006</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.4</path>
+      <filetype>text/plain</filetype>
+      <length>72</length>
+      <last_modified>2014-07-29 14:13:10 -0600</last_modified>
+      <md5>0b1c9dff2d4ce17cbe980d8bbf38228c</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1</path>
+      <filetype>text/plain</filetype>
+      <length>593</length>
+      <last_modified>2014-07-29 14:13:28 -0600</last_modified>
+      <md5>904d5c9c996d4f0b4632043fd7d9a231</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:28 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:28 -0600</last_modified>
+      <md5>e5e97d9320465a3ac29fc58a2037c553</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/2008.1.1.4.32.1-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data</path>
+      <filetype>application/xml</filetype>
+      <length>19654</length>
+      <last_modified>2014-07-02 05:41:59 -0600</last_modified>
+      <md5>0faefcf76a0b2509ffbdcd08608de401</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/ALTO/2008.1.1.4.32.1-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>63227</length>
+      <last_modified>2014-07-02 05:41:57 -0600</last_modified>
+      <md5>954378be3364450024bfe75139c8fbaf</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/ALTO/2008.1.1.4.32.1-ALTO00004.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>4100</length>
+      <last_modified>2014-07-02 05:41:57 -0600</last_modified>
+      <md5>bbb8491910ec96c08513ee11bc6f1bde</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/ALTO/2008.1.1.4.32.1-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>38911</length>
+      <last_modified>2014-07-02 05:41:57 -0600</last_modified>
+      <md5>dfd486d9ca974b8ce1163bfd174dd889</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/ALTO/2008.1.1.4.32.1-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>65079</length>
+      <last_modified>2014-07-02 05:41:57 -0600</last_modified>
+      <md5>766794589f2cbfc6b30e8327d514f15a</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/IMG/00000004.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>7403117</length>
+      <last_modified>2014-07-02 05:41:57 -0600</last_modified>
+      <md5>08dfbe2e7e273a8734074334dfc215ad</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>7306361</length>
+      <last_modified>2014-07-02 05:41:47 -0600</last_modified>
+      <md5>d39bee134fa7b83c27b0bd31c74d1cfb</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>7388217</length>
+      <last_modified>2014-07-02 05:41:53 -0600</last_modified>
+      <md5>b7056fe50448a1341f320519cecda9a4</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>7453150</length>
+      <last_modified>2014-07-02 05:41:50 -0600</last_modified>
+      <md5>85d134835fc8ffcb2c0a033ccc68ca11</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.32.1</path>
+      <filetype>text/plain</filetype>
+      <length>71</length>
+      <last_modified>2014-07-29 14:13:28 -0600</last_modified>
+      <md5>6b4f56cb3dd91a816966aff5089c82c3</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6</path>
+      <filetype>text/plain</filetype>
+      <length>608</length>
+      <last_modified>2014-07-29 14:12:59 -0600</last_modified>
+      <md5>6c02a2c63b94380ae729f3821635d2b6</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:12:59 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:12:59 -0600</last_modified>
+      <md5>10a4bca7fac62408d6ecf389d2b5f44c</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/ALTO/2008.1.1.1.2.239.6-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>14297</length>
+      <last_modified>2014-07-02 05:22:19 -0600</last_modified>
+      <md5>7b504ea127c99feb051a1217f0755720</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/ALTO/2008.1.1.1.2.239.6-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>9817</length>
+      <last_modified>2014-07-02 05:22:19 -0600</last_modified>
+      <md5>a4e6c32886ab69fdc362120c63b7c40a</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/ALTO/2008.1.1.1.2.239.6-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>10408</length>
+      <last_modified>2014-07-02 05:22:19 -0600</last_modified>
+      <md5>60813584a508f6a638b331bf7ca691e9</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/ALTO/2008.1.1.1.2.239.6-ALTO00004.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>3281</length>
+      <last_modified>2014-07-02 05:22:19 -0600</last_modified>
+      <md5>34a95aa442257880985138494533332d</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/2008.1.1.1.2.239.6-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data</path>
+      <filetype>application/xml</filetype>
+      <length>18882</length>
+      <last_modified>2014-07-02 05:22:20 -0600</last_modified>
+      <md5>079f832bec2322519b130ee2fc3259f2</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/IMG/00000004.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5118469</length>
+      <last_modified>2014-07-02 05:22:18 -0600</last_modified>
+      <md5>f2a9540ff046c7b0ad9597b42a1cd4c5</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5147246</length>
+      <last_modified>2014-07-02 05:22:10 -0600</last_modified>
+      <md5>cb87c731134be51a7238bd1ccbdee081</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5158142</length>
+      <last_modified>2014-07-02 05:22:15 -0600</last_modified>
+      <md5>8f829e4333ba928c42c7446e09db498f</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5152232</length>
+      <last_modified>2014-07-02 05:22:13 -0600</last_modified>
+      <md5>63e101de417cf4f1fae772f8755cc31f</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.239.6</path>
+      <filetype>text/plain</filetype>
+      <length>71</length>
+      <last_modified>2014-07-29 14:12:59 -0600</last_modified>
+      <md5>a14c71fa71ec5bfe85d9d218b18b561b</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5</path>
+      <filetype>text/plain</filetype>
+      <length>335</length>
+      <last_modified>2014-07-29 14:13:12 -0600</last_modified>
+      <md5>e5b4a7ca8c86ea3f3ff3fe923f6f52f8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:12 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:12 -0600</last_modified>
+      <md5>1f312864a5d3c478585114997632cd45</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/ALTO/2008.1.1.1.3.12.5-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>40284</length>
+      <last_modified>2014-07-02 05:40:17 -0600</last_modified>
+      <md5>25d07f046a012b372eb52b9e92fb8f7b</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/ALTO/2008.1.1.1.3.12.5-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>4335</length>
+      <last_modified>2014-07-02 05:40:17 -0600</last_modified>
+      <md5>b24c4e3f6b2bd42aa8416c7dff8ba3c3</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/2008.1.1.1.3.12.5-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data</path>
+      <filetype>application/xml</filetype>
+      <length>11137</length>
+      <last_modified>2014-07-02 05:40:18 -0600</last_modified>
+      <md5>2c3c67e1d236e03020cb5d7978ae038f</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5672594</length>
+      <last_modified>2014-07-02 05:40:15 -0600</last_modified>
+      <md5>42793d26af19aa1ccb5d570fa4300558</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>1842655</length>
+      <last_modified>2014-07-02 05:40:16 -0600</last_modified>
+      <md5>981533fb7b7577a1987ac94cc779b1ba</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.5</path>
+      <filetype>text/plain</filetype>
+      <length>69</length>
+      <last_modified>2014-07-29 14:13:12 -0600</last_modified>
+      <md5>f692ba4eda319006b1f112469997f621</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6</path>
+      <filetype>text/plain</filetype>
+      <length>329</length>
+      <last_modified>2014-07-29 14:13:34 -0600</last_modified>
+      <md5>4e0cb934a1effd07e147117d384f7017</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:33 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:33 -0600</last_modified>
+      <md5>17e646020c3784935dd6726a76eb64eb</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/ALTO/2008.1.1.4.33.6-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>100150</length>
+      <last_modified>2014-07-02 05:42:22 -0600</last_modified>
+      <md5>02e7e60b318d984d657b8d97733000d9</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/ALTO/2008.1.1.4.33.6-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>25236</length>
+      <last_modified>2014-07-02 05:42:22 -0600</last_modified>
+      <md5>476faa5b6c1b3a0b215b50de87495cc3</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/2008.1.1.4.33.6-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data</path>
+      <filetype>application/xml</filetype>
+      <length>11258</length>
+      <last_modified>2014-07-02 05:42:23 -0600</last_modified>
+      <md5>18d60390b44e012ed4125aeed0164824</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>3880974</length>
+      <last_modified>2014-07-02 05:42:20 -0600</last_modified>
+      <md5>af2aadc42485ad1f4b1b1581ab9f4392</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>3895957</length>
+      <last_modified>2014-07-02 05:42:22 -0600</last_modified>
+      <md5>1e1df7c361a9cf4cf970f995e12dabce</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.4.33.6</path>
+      <filetype>text/plain</filetype>
+      <length>69</length>
+      <last_modified>2014-07-29 14:13:33 -0600</last_modified>
+      <md5>d45fa00bbff216023b1281c4529359fd</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+      <filetype>text/plain</filetype>
+      <length>55</length>
+      <last_modified>2016-11-17 11:07:28 -0700</last_modified>
+      <md5>9e5ad981e0d29adc278f6a294b8c2aca</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3</path>
+      <filetype>text/plain</filetype>
+      <length>608</length>
+      <last_modified>2014-07-29 14:12:55 -0600</last_modified>
+      <md5>b1688811616cb1e02a2cf37358d15410</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:12:55 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:12:55 -0600</last_modified>
+      <md5>76b6445de002cc1c2e34d7830de5bd8b</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/ALTO/2008.1.1.1.2.234.3-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>49909</length>
+      <last_modified>2014-07-02 05:21:01 -0600</last_modified>
+      <md5>b1cd81c1577bed66fd1e03af58d6f62c</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/ALTO/2008.1.1.1.2.234.3-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>28900</length>
+      <last_modified>2014-07-02 05:21:01 -0600</last_modified>
+      <md5>05ae51f0854cfb7980f8a3f1594e5af2</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/ALTO/2008.1.1.1.2.234.3-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>45327</length>
+      <last_modified>2014-07-02 05:21:00 -0600</last_modified>
+      <md5>6143975acd0ff0f8372e3fdaaa78b2ca</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/ALTO/2008.1.1.1.2.234.3-ALTO00004.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>6111</length>
+      <last_modified>2014-07-02 05:21:01 -0600</last_modified>
+      <md5>6c17564d24a704b18550f3109ebcf40d</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/IMG/00000004.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5027364</length>
+      <last_modified>2014-07-02 05:21:00 -0600</last_modified>
+      <md5>ccfc899f664ea261f0398ac22b1a82eb</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>4818531</length>
+      <last_modified>2014-07-02 05:20:54 -0600</last_modified>
+      <md5>33536e41c4d21b735798648b312420ca</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5053561</length>
+      <last_modified>2014-07-02 05:20:58 -0600</last_modified>
+      <md5>9873f754093771aad5fdb22891b868c1</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5049755</length>
+      <last_modified>2014-07-02 05:20:56 -0600</last_modified>
+      <md5>df8b79381d8e94094661a7175881d988</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data/2008.1.1.1.2.234.3-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/data</path>
+      <filetype>application/xml</filetype>
+      <length>19498</length>
+      <last_modified>2014-07-02 05:21:02 -0600</last_modified>
+      <md5>709024df25e2707e9ce54b5eeccc19a9</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.234.3</path>
+      <filetype>text/plain</filetype>
+      <length>71</length>
+      <last_modified>2014-07-29 14:12:55 -0600</last_modified>
+      <md5>d9b923c919e55d6b80ee5dc696e98ee8</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13</path>
+      <filetype>text/plain</filetype>
+      <length>461</length>
+      <last_modified>2014-07-29 14:13:25 -0600</last_modified>
+      <md5>cad991852986cdda54c30ce744464e9e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:25 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:25 -0600</last_modified>
+      <md5>c319feced2da77a940c35bb86e5a3150</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/ALTO/2008.1.1.3.6.13-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>40704</length>
+      <last_modified>2014-07-02 05:41:37 -0600</last_modified>
+      <md5>c83b7a1677c4e1f40b447e63f13c5c5b</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/ALTO/2008.1.1.3.6.13-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>56175</length>
+      <last_modified>2014-07-02 05:41:37 -0600</last_modified>
+      <md5>72ef8cbdf301e697f3c0be3fae9795df</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/ALTO/2008.1.1.3.6.13-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>66275</length>
+      <last_modified>2014-07-02 05:41:37 -0600</last_modified>
+      <md5>a0e542d561ae19545365a6602fb2361c</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/2008.1.1.3.6.13-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data</path>
+      <filetype>application/xml</filetype>
+      <length>15336</length>
+      <last_modified>2014-07-02 05:41:38 -0600</last_modified>
+      <md5>f6520f1c3570fe226d6c5d37db07a394</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5070686</length>
+      <last_modified>2014-07-02 05:41:30 -0600</last_modified>
+      <md5>1bd71db2ab7a5769b68678e8b1c8241a</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5077932</length>
+      <last_modified>2014-07-02 05:41:37 -0600</last_modified>
+      <md5>6f8be37ad15a46d12726543337518e84</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5071224</length>
+      <last_modified>2014-07-02 05:41:34 -0600</last_modified>
+      <md5>accfbf9559382eb7a97d635fb09d8c4a</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.3.6.13</path>
+      <filetype>text/plain</filetype>
+      <length>71</length>
+      <last_modified>2014-07-29 14:13:25 -0600</last_modified>
+      <md5>c82141315a3465718c509c04cdd74748</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2</path>
+      <filetype>text/plain</filetype>
+      <length>338</length>
+      <last_modified>2014-07-29 14:21:26 -0600</last_modified>
+      <md5>d65dc92e333fea360c12da8497a20210</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:21:26 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:21:26 -0600</last_modified>
+      <md5>d3f64678cdb2918a0a637e1da570e756</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/ALTO/2208.1.1.1.2.262.2-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>86433</length>
+      <last_modified>2014-07-02 07:56:45 -0600</last_modified>
+      <md5>8cb6fb9b612fa28a028d161ead2f7dd4</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/ALTO/2208.1.1.1.2.262.2-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>40628</length>
+      <last_modified>2014-07-02 07:56:46 -0600</last_modified>
+      <md5>94c2fc3de6098b25e85c62062e6940e8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/2208.1.1.1.2.262.2-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data</path>
+      <filetype>application/xml</filetype>
+      <length>11359</length>
+      <last_modified>2014-07-02 07:56:46 -0600</last_modified>
+      <md5>6ab7ad0ef9bcc635c843f5712572d81b</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5203893</length>
+      <last_modified>2014-07-02 07:56:43 -0600</last_modified>
+      <md5>0fc1e08625ea77b73fff04319becaffa</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5184148</length>
+      <last_modified>2014-07-02 07:56:45 -0600</last_modified>
+      <md5>c01780db2399c64d293bf7bfc5f288e7</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.2.262.2</path>
+      <filetype>text/plain</filetype>
+      <length>72</length>
+      <last_modified>2014-07-29 14:21:26 -0600</last_modified>
+      <md5>a4453b9ef2b81a33c10d800b3c2ad52b</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/manifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2</path>
+      <filetype>text/plain</filetype>
+      <length>1139</length>
+      <last_modified>2014-07-29 14:13:03 -0600</last_modified>
+      <md5>bdca48e400a8b7e1799cb8d9dcf11582</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/bag_verified</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2</path>
+      <filetype/>
+      <length>0</length>
+      <last_modified>2016-11-21 16:21:45 -0700</last_modified>
+      <md5>d41d8cd98f00b204e9800998ecf8427e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/bagit.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2</path>
+      <filetype>text/plain</filetype>
+      <length>57</length>
+      <last_modified>2014-07-29 14:13:02 -0600</last_modified>
+      <md5>defc71b28593bb73c7c94a8332f85da8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/tagmanifest-md5.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2</path>
+      <filetype>text/plain</filetype>
+      <length>145</length>
+      <last_modified>2014-07-29 14:13:03 -0600</last_modified>
+      <md5>a81355720d5c8c4bb6388ef357793f3a</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2</path>
+    </dir>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO/2008.1.1.1.3.12.2-ALTO00008.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>13342</length>
+      <last_modified>2014-07-02 05:22:33 -0600</last_modified>
+      <md5>f976880f2271033ec24e57dc7afe73e4</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO/2008.1.1.1.3.12.2-ALTO00005.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>63859</length>
+      <last_modified>2014-07-02 05:22:33 -0600</last_modified>
+      <md5>0e7f573ca15469e18befaa99ad410d80</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO/2008.1.1.1.3.12.2-ALTO00006.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>63253</length>
+      <last_modified>2014-07-02 05:22:33 -0600</last_modified>
+      <md5>d0192b0f632eee49213b0223e0aa5387</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO/2008.1.1.1.3.12.2-ALTO00002.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>57408</length>
+      <last_modified>2014-07-02 05:22:32 -0600</last_modified>
+      <md5>5299d848f140810cb02c9d0dcab0547a</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO/2008.1.1.1.3.12.2-ALTO00004.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>61293</length>
+      <last_modified>2014-07-02 05:22:33 -0600</last_modified>
+      <md5>87c464bcdcb346dd35f48f2b0eb4c38e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO/2008.1.1.1.3.12.2-ALTO00007.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>42268</length>
+      <last_modified>2014-07-02 05:22:33 -0600</last_modified>
+      <md5>3cf904378ade30f9d96cc6d68b699797</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO/2008.1.1.1.3.12.2-ALTO00001.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>42313</length>
+      <last_modified>2014-07-02 05:22:32 -0600</last_modified>
+      <md5>bcf7a828bd36f087e6dc662c16fea406</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO/2008.1.1.1.3.12.2-ALTO00003.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/ALTO</path>
+      <filetype>application/xml</filetype>
+      <length>59090</length>
+      <last_modified>2014-07-02 05:22:33 -0600</last_modified>
+      <md5>a99a0f8121726466fb702b82ed41b334</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/2008.1.1.1.3.12.2-METS.xml</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data</path>
+      <filetype>application/xml</filetype>
+      <length>36115</length>
+      <last_modified>2014-07-02 05:22:35 -0600</last_modified>
+      <md5>be565fd56a2bdbe40809edc0b47258bb</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG/00000007.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5890964</length>
+      <last_modified>2014-07-02 05:22:30 -0600</last_modified>
+      <md5>19b58a4aef96c1621ef1cabf041300ef</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG/00000004.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5763168</length>
+      <last_modified>2014-07-02 05:22:22 -0600</last_modified>
+      <md5>1c770fdaa579b649e75e075523bb102e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG/00000001.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5616829</length>
+      <last_modified>2014-07-02 05:22:12 -0600</last_modified>
+      <md5>116c8a117ec0ef244e781c8ce3c8a0db</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG/00000006.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5776780</length>
+      <last_modified>2014-07-02 05:22:27 -0600</last_modified>
+      <md5>32951621162292122cdc9922a05039f0</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG/00000003.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5761508</length>
+      <last_modified>2014-07-02 05:22:19 -0600</last_modified>
+      <md5>de7f56be87b776b767c08437a06f5f42</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG/00000008.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>2720414</length>
+      <last_modified>2014-07-02 05:22:31 -0600</last_modified>
+      <md5>742e1b4cc9589daf26a8276f3b657efe</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG/00000002.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5772275</length>
+      <last_modified>2014-07-02 05:22:16 -0600</last_modified>
+      <md5>2300d12d39824a2a423284aa5f5bdd6e</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG/00000005.jp2</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/data/IMG</path>
+      <filetype>image/jp2</filetype>
+      <length>5830146</length>
+      <last_modified>2014-07-02 05:22:24 -0600</last_modified>
+      <md5>dfed944b0e9ff6929df53d073e1464f8</md5>
+    </file>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023/2008.1.1.1.3.12.2</path>
+      <filetype>text/plain</filetype>
+      <length>72</length>
+      <last_modified>2014-07-29 14:13:03 -0600</last_modified>
+      <md5>2a53456ac9ec609d0091f5a60c153a48</md5>
+    </file>
+    <dir>
+      <dirname>/home/baihong/Documents/UAL-STE-0023/data</dirname>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+    </dir>
+    <file>
+      <filename>/home/baihong/Documents/UAL-STE-0023/bag-info.txt</filename>
+      <path>/home/baihong/Documents/UAL-STE-0023</path>
+      <filetype>text/plain</filetype>
+      <length>107</length>
+      <last_modified>2016-11-17 11:07:28 -0700</last_modified>
+      <md5>ee420baed092916cf5fcec7487c68ace</md5>
+    </file>
+  </files>
+</root>
