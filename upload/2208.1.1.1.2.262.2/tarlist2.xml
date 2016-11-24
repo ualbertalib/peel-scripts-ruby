@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<root>
+  <files>
+    <file>
+      <filename>upload/2208.1.1.1.2.262.2/alto.tar</filename>
+      <filetype>application/x-tar</filetype>
+      <length>143360</length>
+      <md5>6ef1eaaf81b9f2ee287b2406d50e151e</md5>
+    </file>
+    <file>
+      <filename>upload/2208.1.1.1.2.262.2/mets.tar</filename>
+      <filetype>application/x-tar</filetype>
+      <length>20480</length>
+      <md5>cb6a40aa2730d5a9be5c76d4ac95bd38</md5>
+    </file>
+    <file>
+      <filename>upload/2208.1.1.1.2.262.2/jp2.tar</filename>
+      <filetype>application/x-tar</filetype>
+      <length>10403840</length>
+      <md5>9777967000f13365e33004a33cb0fd04</md5>
+    </file>
+  </files>
+</root>

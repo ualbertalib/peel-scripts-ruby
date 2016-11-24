@@ -3,6 +3,7 @@ require './helpers'
 require 'ddr-antivirus'
 require 'fileutils'
 require 'bagit'
+require 'net/sftp'
 
 
 def antivirus_scan(dir)
@@ -86,6 +87,10 @@ def ingest_files(issue_path, saved_location, file_type)
   end
   create_bag(target_dir, files, false)
   Utils.tar(File.join(saved_location, "#{file_type.downcase}.tar"), "#{target_dir}")
+  #delete untar file
+  FileUtils.rm_rf(target_dir)
+  #create md5 for each file in a folder
+  DirToXml.generatemd5(saved_location)
 end
 
 def cleanup(dir)
@@ -253,11 +258,11 @@ def steele(opts,mysql_connection)
     ingest_files(item_path, temp_location, 'mets')
     ingest_files(item_path, temp_location, 'pdf') if Dir.glob("#{item_path}/**/*.pdf").count > 0
     puts "tar finish"
-    noid = Utils.noid
-    metadata = {"noid" => noid, "peelnum" => item }
-    update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
-    mysql_query(mysql_connection, update) unless dryrun
-    cleanup(temp_location)
+    # noid = Utils.noid
+    # metadata = {"noid" => noid, "peelnum" => item }
+    # update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
+    # mysql_query(mysql_connection, update) unless dryrun
+    #cleanup(temp_location)
   end
 end
 
@@ -300,8 +305,9 @@ end
   generate_filelist(dir, file_list)
   valid = DirToXml.validation(dir, file_list)
   logger.info "Successfully generated a file list at #{file_list}" if valid
+  puts "xml correct" if valid
   logger.error "Error when creating file list for #{dir}" if !valid
-  puts "generate list finish"
+  puts "xml wrong" if !valid
   #Validate bag
   unless skip_bag
     logger.info "Start to valid bags in the delivery"
@@ -334,3 +340,10 @@ end
     generic(opts, connection)
   end
   Helpers.close_mysql_connection(connection)
+  #upload to jeoffry
+  Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
+    # upload a file or directory to the remote host
+    if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/home/baihong/peel-scripts-ruby/upload")
+      puts "upload Finish"
+    end
+  end
