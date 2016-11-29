@@ -1,3 +1,6 @@
 log/
 deliveries/
+upload/
+vendor/
 tmp/
+*.yml
