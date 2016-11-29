@@ -249,10 +249,12 @@ def steele(opts,mysql_connection)
     temp_dir = properties['temp_dir']
     temp_location = File.join(temp_dir, item)
     puts temp_location
+    #File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
     ingest_files(item_path, temp_location, 'jp2') #if Dir.glob("#{item_path}/**/*.jp2").count > 0
     ingest_files(item_path, temp_location, 'alto') #if Dir.glob("#{item_path}/**/ALTO/*.xml").count > 0
     ingest_files(item_path, temp_location, 'mets')
     ingest_files(item_path, temp_location, 'pdf') if Dir.glob("#{item_path}/**/*.pdf").count > 0
+    File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
     puts "tar finish"
     #delete folders before tar
     # noid = Utils.noid
@@ -340,7 +342,7 @@ end
   #upload to jeoffry
   # Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
   #   # upload a file or directory to the remote host
-  #   if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/home/baihong/peel-scripts-ruby/upload")
+  #   if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/var/peel-scripts-ruby/upload")
   #     puts "upload Finish"
   #   end
   # end
