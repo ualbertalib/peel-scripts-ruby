@@ -258,11 +258,16 @@ def steele(opts,mysql_connection)
     ingest_files(item_path, temp_location, 'mets')
     ingest_files(item_path, temp_location, 'pdf') if Dir.glob("#{item_path}/**/*.pdf").count > 0
     puts "tar finish"
-    # noid = Utils.noid
-    # metadata = {"noid" => noid, "peelnum" => item }
-    # update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
-    # mysql_query(mysql_connection, update) unless dryrun
+    logger.info "Ready to ingest #{item} into OpenStack"
+    noid = Utils.noid
+    metadata = {"noid" => noid, "steelenum" => item }
+    Dir.glob("#{temp_location}/*.*") do |f|
+      Openstack.ingest_peelbib(f, metadata)
+    end
+    update = "UPDATE steele_test set noid = '#{noid}' where unit = '#{item}'"
+    mysql_query(mysql_connection, update) unless dryrun
     #cleanup(temp_location)
+
   end
 end
 

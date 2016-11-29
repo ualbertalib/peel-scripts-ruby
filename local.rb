@@ -12,10 +12,6 @@ def antivirus_scan(dir)
   result = Ddr::Antivirus.scan dir
 end
 
-
-
-
-
 def generate_filelist(dir, file_list)
   begin
     if File.directory?(dir)
@@ -135,14 +131,14 @@ def newspaper(opts, mysql_connection)
       ingest_files(issue_path, temp_location, 'alto')
       ingest_files(issue_path, temp_location, 'mets')
       ingest_files(issue_path, temp_location, 'pdf')
-      noid = Utils.noid
-      metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
-      Dir.glob("#{temp_location}/*.*") do |f|
-        Openstack.ingest_newspaper(f,metadata)
-      end
-      update = "UPDATE newspapers_copy set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
-      mysql_query(mysql_connection, update) unless dryrun
-      cleanup(temp_location)
+      # noid = Utils.noid
+      # metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
+      # Dir.glob("#{temp_location}/*.*") do |f|
+      #   Openstack.ingest_newspaper(f,metadata)
+      # end
+      # update = "UPDATE newspapers_copy set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
+      # mysql_query(mysql_connection, update) unless dryrun
+      # cleanup(temp_location)
     else
       puts "There is a duplicated record in the database: check #{issue_path}"
     end
@@ -185,14 +181,14 @@ def peel(opts, mysql_connection)
     ingest_files(item_path, temp_location, 'mets')
     ingest_files(item_path, temp_location, 'pdf')
     logger.info "Ready to ingest #{item} into OpenStack"
-    noid = Utils.noid
-    metadata = {"noid" => noid, "peelnum" => item }
-    Dir.glob("#{temp_location}/*.*") do |f|
-      Openstack.ingest_peelbib(f, metadata)
-    end
-    update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
-    mysql_query(mysql_connection, update) unless dryrun
-    cleanup(temp_location)
+    # noid = Utils.noid
+    # metadata = {"noid" => noid, "peelnum" => item }
+    # Dir.glob("#{temp_location}/*.*") do |f|
+    #   Openstack.ingest_peelbib(f, metadata)
+    # end
+    # update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
+    # mysql_query(mysql_connection, update) unless dryrun
+    # cleanup(temp_location)
   end
 end
 
@@ -217,13 +213,13 @@ def generic(opts, mysql_connection)
       create_bag(target_dir, Dir[d], false)
       temp_location = temp_dir + "/" + normalized_object + "_tar"
       Utils.tar(File.join(temp_location, '1.tar'), "#{target_dir}")
-      noid = Utils.noid
-      metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>normalized_object}
-      #Openstack.ingest_generic("#{temp_location}/1.tar", metadata)
-      update = "UPDATE digitization_noids set noid = '#{noid}' where object_name = '#{normalized_object}'"
-      puts update
-      mysql_query(mysql_connection, update) unless dryrun
-      cleanup(temp_location)
+      # noid = Utils.noid
+      # metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>normalized_object}
+      # #Openstack.ingest_generic("#{temp_location}/1.tar", metadata)
+      # update = "UPDATE digitization_noids set noid = '#{noid}' where object_name = '#{normalized_object}'"
+      # puts update
+      # mysql_query(mysql_connection, update) unless dryrun
+      # cleanup(temp_location)
     else
       puts "There is a duplicated record in the database: check #{issue_path}"
     end
@@ -293,7 +289,7 @@ end
   dryrun = opts[:dry_run]
   collection = opts[:collection]
   skip_bag = opts[:skipbag]
-  logfile = "log/ingest-#{last_dir}-#{timestamp}"
+  logfile = "log/local-#{last_dir}-#{timestamp}"
   logger = Logger.new(logfile)
   logger.info "Start Ingest the directory #{dir}"
   #Virus Scanning
@@ -342,9 +338,9 @@ end
   end
   Helpers.close_mysql_connection(connection)
   #upload to jeoffry
-  Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
-    # upload a file or directory to the remote host
-    if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/home/baihong/peel-scripts-ruby/upload")
-      puts "upload Finish"
-    end
-  end
+  # Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
+  #   # upload a file or directory to the remote host
+  #   if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/home/baihong/peel-scripts-ruby/upload")
+  #     puts "upload Finish"
+  #   end
+  # end
