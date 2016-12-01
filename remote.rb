@@ -59,25 +59,28 @@ Dir.glob("upload/**/*.xml") do |f|
     result = mysql_query(connection, line) unless dryrun
   end
   puts "finish insert into the database"
+  #push to openstack
   noid = Utils.noid
   if type == "newspaper"
-    metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
-      Dir.glob("#{tar_path}/*.*") do |f|
-        Openstack.ingest_newspaper(f,metadata)
-      end
-      #get the update, probably save first  
+    Dir.glob("#{tar_path}/*.*") do |f|
+      Openstack.ingest_newspaper(f,metadata)
+    end
   elsif type == "peelbib"
-    peelbib(opts,connection)
+    Dir.glob("#{tar_path}/*.*") do |f|
+      Openstack.ingest_peelbib(f, metadata)
+    end
   elsif type == "steele"
-    steele(opts,connection)
+    Dir.glob("#{tar_path}/*.*") do |f|
+      Openstack.ingest_steele(f, metadata)
+    end
   elsif type == "generic"
-    generic(opts, connection)
+    Openstack.ingest_generic("#{tar_path}/1.tar", metadata)
   end
-
-
-
-
-
+  #update the database
+  File.open(File.join(tar_path,'insert.txt')).each do |line|
+    puts line
+    result = mysql_query(connection, line) unless dryrun
+   end
 end
 Helpers.close_mysql_connection(connection)
 #check in the database

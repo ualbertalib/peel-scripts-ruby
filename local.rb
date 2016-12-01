@@ -122,7 +122,7 @@ def newspaper(opts, mysql_connection)
       insert = "INSERT INTO newspapers_copy(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES
        ('#{publication}', #{year}, #{month}, #{date}, #{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW())"
       puts insert
-      mysql_query(mysql_connection, insert) unless dryrun
+      #mysql_query(mysql_connection, insert) unless dryrun
       properties = Helpers.read_properties('properties.yml')
       temp_dir = properties['temp_dir']
       temp_location = File.join(temp_dir, issue)
@@ -131,14 +131,17 @@ def newspaper(opts, mysql_connection)
       ingest_files(issue_path, temp_location, 'alto')
       ingest_files(issue_path, temp_location, 'mets')
       ingest_files(issue_path, temp_location, 'pdf')
-      # noid = Utils.noid
-      # metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
+      File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
+      noid = Utils.noid
+      metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
       # Dir.glob("#{temp_location}/*.*") do |f|
       #   Openstack.ingest_newspaper(f,metadata)
       # end
-      # update = "UPDATE newspapers_copy set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
-      # mysql_query(mysql_connection, update) unless dryrun
-      # cleanup(temp_location)
+      update = "UPDATE newspapers_copy set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
+      #mysql_query(mysql_connection, update) unless dryrun
+      #write into a file instead of execute in the database
+      File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
+      #cleanup(temp_location)
     else
       puts "There is a duplicated record in the database: check #{issue_path}"
     end
@@ -170,7 +173,7 @@ def peel(opts, mysql_connection)
     insert = "INSERT INTO items_copy(code, digstatus, delivery, scanimages) VALUES ('#{item}', 'digitized', '#{delivery}', '#{pagecount}')
               ON DUPLICATE KEY UPDATE code = VALUES(code), digstatus=VALUES(digstatus), delivery=VALUES(delivery), scanimages=VALUES(scanimages)"
     puts insert
-    result = mysql_query(mysql_connection, insert) unless dryrun#instead of select
+    #result = mysql_query(mysql_connection, insert) unless dryrun#instead of select
     properties = Helpers.read_properties('properties.yml')
     temp_dir = properties['temp_dir']
     temp_location = File.join(temp_dir, item)
@@ -180,13 +183,15 @@ def peel(opts, mysql_connection)
     ingest_files(item_path, temp_location, 'alto')
     ingest_files(item_path, temp_location, 'mets')
     ingest_files(item_path, temp_location, 'pdf')
+    File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
     logger.info "Ready to ingest #{item} into OpenStack"
-    # noid = Utils.noid
-    # metadata = {"noid" => noid, "peelnum" => item }
+    noid = Utils.noid
+    metadata = {"noid" => noid, "peelnum" => item }
     # Dir.glob("#{temp_location}/*.*") do |f|
     #   Openstack.ingest_peelbib(f, metadata)
     # end
-    # update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
+    update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
+    File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
     # mysql_query(mysql_connection, update) unless dryrun
     # cleanup(temp_location)
   end
@@ -201,22 +206,26 @@ def generic(opts, mysql_connection)
   collection = opts[:collection]
   Dir.glob("#{dir}/*") do |d|
     object = File.basename(d)
-    normalized_object = object.gsub!(/[^0-9A-Za-z.\-]/, '_')
+    normalized_object = object.gsub!(/[^0-9A-Za-z.\-]/, '_')# Dir.glob("#{temp_location}/*.*") do |f|
+      #   Openstack.ingest_newspaper(f,metadata)
+      # end
     puts normalized_object
     if result.num_rows == 0
       insert = "INSERT INTO digitization_noids_copy(object_name, collection, delivery) VALUES ('#{normalized_object}', '#{collection}', '#{delivery}')"
       puts insert
-      mysql_query(mysql_connection, insert) unless dryrun
+      #mysql_query(mysql_connection, insert) unless dryrun
       properties = Helpers.read_properties('properties.yml')
       temp_dir = properties['temp_dir']
       target_dir = File.join(temp_dir, normalized_object)
       create_bag(target_dir, Dir[d], false)
       temp_location = temp_dir + "/" + normalized_object + "_tar"
       Utils.tar(File.join(temp_location, '1.tar'), "#{target_dir}")
-      # noid = Utils.noid
-      # metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>normalized_object}
+      File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
+      noid = Utils.noid
+      metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>normalized_object}
       # #Openstack.ingest_generic("#{temp_location}/1.tar", metadata)
-      # update = "UPDATE digitization_noids set noid = '#{noid}' where object_name = '#{normalized_object}'"
+      update = "UPDATE digitization_noids set noid = '#{noid}' where object_name = '#{normalized_object}'"
+      File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
       # puts update
       # mysql_query(mysql_connection, update) unless dryrun
       # cleanup(temp_location)
@@ -244,7 +253,7 @@ def steele(opts,mysql_connection)
     insert = "INSERT INTO steele_test(unit, digstatus, delivery, scanimages,checkin) VALUES ('#{item}', 'digitized', '#{delivery}', '#{pagecount}',NOW())
                 ON DUPLICATE KEY UPDATE unit = VALUES(unit), digstatus=VALUES(digstatus), delivery=VALUES(delivery), scanimages=VALUES(scanimages), checkin=VALUES(checkin)"
     puts insert
-    result = mysql_query(mysql_connection, insert) unless dryrun
+    #result = mysql_query(mysql_connection, insert) unless dryrun
     properties = Helpers.read_properties('properties.yml')
     temp_dir = properties['temp_dir']
     temp_location = File.join(temp_dir, item)
@@ -257,9 +266,10 @@ def steele(opts,mysql_connection)
     File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
     puts "tar finish"
     #delete folders before tar
-    # noid = Utils.noid
-    # metadata = {"noid" => noid, "peelnum" => item }
-    # update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
+    noid = Utils.noid
+    metadata = {"noid" => noid, "peelnum" => item }
+    update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
+    File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
     # mysql_query(mysql_connection, update) unless dryrun
     #cleanup(temp_location)
   end
