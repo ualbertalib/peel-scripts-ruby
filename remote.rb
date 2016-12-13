@@ -49,10 +49,10 @@ Dir.glob("upload/**/*.xml") do |f|
   DirToXml.md5remote(tar_path)
   if FileUtils.compare_file(File.join(tar_path,'tarlist.xml'),File.join(tar_path, 'tarlist2.xml'))
     puts "#{folder}: file transfer correct"
-    logger.info "#{folder}: file transfer correct"
+    #logger.info "#{folder}: file transfer correct"
   else
     puts "#{folder}: file transfer error"
-    logger.error "#{folder}: file transfer error"
+    #logger.error "#{folder}: file transfer error"
   end
   File.open(File.join(tar_path,'insert.txt')).each do |line|
     puts line
@@ -60,7 +60,8 @@ Dir.glob("upload/**/*.xml") do |f|
   end
   puts "finish insert into the database"
   #push to openstack
-  noid = Utils.noid
+  metadata=File.open(File.join(tar_path,"metadata.marshal"), "r"){|from_file| Marshal.load(from_file)}
+  puts metadata
   if type == "newspaper"
     Dir.glob("#{tar_path}/*.*") do |f|
       Openstack.ingest_newspaper(f,metadata)
@@ -77,10 +78,10 @@ Dir.glob("upload/**/*.xml") do |f|
     Openstack.ingest_generic("#{tar_path}/1.tar", metadata)
   end
   #update the database
-  File.open(File.join(tar_path,'insert.txt')).each do |line|
+  File.open(File.join(tar_path,'update.txt')).each do |line|
     puts line
-    result = mysql_query(connection, line) unless dryrun
+    #result = mysql_query(connection, line) unless dryrun
    end
-end
-Helpers.close_mysql_connection(connection)
-#check in the database
+ end
+ Helpers.close_mysql_connection(connection)
+# #check in the database
