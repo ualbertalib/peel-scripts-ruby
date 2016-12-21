@@ -1,7 +1,0 @@
-# Logfile created on 2016-11-18 13:41:59 -0700 by logger.rb/v1.2.7
-I, [2016-11-18T13:41:59.804901 #865]  INFO -- : Start Ingest the directory /media/baihong/UA Digital_Init 9761/Chinese Experience in Canada-scanned files
-I, [2016-11-18T13:41:59.804924 #865]  INFO -- : Start scanning the directory for virus
-I, [2016-11-18T13:41:59.804961 #865]  INFO -- : Virus scanning completed, at 2016-11-18 20:41:59 UTC
-I, [2016-11-18T13:41:59.804972 #865]  INFO -- : /media/baihong/UA Digital_Init 9761/Chinese Experience in Canada-scanned files: NOT SCANNED - using :null scanner adapter.
-[ddr-antivirus 2.1.1]
-I, [2016-11-18T13:41:59.804980 #865]  INFO -- : Generating list of files within the directory /media/baihong/UA Digital_Init 9761/Chinese Experience in Canada-scanned files

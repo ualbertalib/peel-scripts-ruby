@@ -1,4 +1,0 @@
-# Logfile created on 2015-12-03 13:53:36 -0700 by logger.rb/47272
-I, [2015-12-03T13:53:36.781739 #4345]  INFO -- : Start Ingest the directory Shipment39/
-I, [2015-12-03T13:53:36.781762 #4345]  INFO -- : Start scanning the directory for virus
-I, [2015-12-03T13:53:36.781771 #4345]  INFO -- : Checkin the delivery into the tracking database

@@ -1,7 +1,0 @@
-# Logfile created on 2016-11-18 13:50:55 -0700 by logger.rb/v1.2.7
-I, [2016-11-18T13:50:55.845321 #1417]  INFO -- : Start Ingest the directory /home/baihong/Documents/Chinese
-I, [2016-11-18T13:50:55.845414 #1417]  INFO -- : Start scanning the directory for virus
-I, [2016-11-18T13:50:55.845652 #1417]  INFO -- : Virus scanning completed, at 2016-11-18 20:50:55 UTC
-I, [2016-11-18T13:50:55.845706 #1417]  INFO -- : /home/baihong/Documents/Chinese: NOT SCANNED - using :null scanner adapter.
-[ddr-antivirus 2.1.1]
-I, [2016-11-18T13:50:55.845741 #1417]  INFO -- : Generating list of files within the directory /home/baihong/Documents/Chinese

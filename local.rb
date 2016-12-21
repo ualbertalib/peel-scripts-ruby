@@ -156,11 +156,12 @@ def newspaper(opts, mysql_connection)
   Dir.glob("#{dir}/**/*-METS.xml") do |f|
     #puts f
     issue_path = File.dirname(f)
-    issue = issue_path.split("/").last
-    puts issue_path
+    whmname = issue_path.split("/").last
+    issue = whmname.split("/").last
+    #puts issue_path
     #puts issue
     pagecount = Dir.glob("#{issue_path}/**/*.jp2").count
-    puts pagecount
+    #puts pagecount
     year = issue.split("_").last.split(//).first(4).join
     puts "year: #{year}"
     date = issue.split("_").last.split(//).first(8).last(2).join.sub(/^0/,"")
@@ -170,8 +171,7 @@ def newspaper(opts, mysql_connection)
     # puts date
     # puts month
     # puts edition
-    insert = "INSERT INTO newspapers_test(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW())
-                ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
+    insert = "INSERT INTO newspapers_test(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
     puts insert
     result = mysql_query(mysql_connection, insert) unless dryrun
     properties = Helpers.read_properties('properties.yml')
@@ -248,43 +248,66 @@ def peel(opts, mysql_connection)
   end
 end
 
-def generic(opts, mysql_connection)
+# def generic(opts, mysql_connection)  File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
+#
+#   dir = opts[:directory]
+#   puts dir
+#   delivery = opts[:delivery]
+#   dryrun = opts[:dryrun]
+#   collection = opts[:collection]
+#   Dir.glob("#{dir}/*") do |d|
+#     object = File.basename(d)
+#     normalized_object = object.gsub!(/[^0-9A-Za-z.\-]/, '_')# Dir.glob("#{temp_location}/*.*") do |f|
+#       #   Openstack.ingest_newspaper(f,metadata)
+#       # end
+#     puts normalized_object
+#     if result.num_rows == 0
+#       insert = "INSERT INTO digitization_noids_copy(object_name, collection, delivery) VALUES ('#{normalized_object}', '#{collection}', '#{delivery}')"
+#       puts insert
+#       #mysql_query(mysql_connection, insert) unless dryrun
+#       properties = Helpers.read_properties('properties.yml')
+#       temp_dir = properties['temp_dir']
+#       target_dir = File.join(temp_dir, normalized_object)
+#       create_bag(target_dir, Dir[d], false)
+#       temp_location = temp_dir + "/" + normalized_object + "_tar"
+#       Utils.tar(File.join(temp_location, '1.tar'), "#{target_dir}")
+#       File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
+#       noid = Utils.noid
+#       metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>normalized_object}
+#       # #Openstack.ingest_generic("#{temp_location}/1.tar", metadata)
+#       update = "UPDATE digitization_noids set noid = '#{noid}' where object_name = '#{normalized_object}'"
+#       File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
+#       # puts update
+#       # mysql_query(mysql_connection, update) unless dryrun
+#       # cleanup(temp_location)
+#     else
+#       puts "There is a duplicated record in the database: check #{issue_path}"
+#     end
+#   end
+# end
 
+def generic(opts, mysql_connection)
+  puts "inside here"
   dir = opts[:directory]
   puts dir
   delivery = opts[:delivery]
   dryrun = opts[:dryrun]
   collection = opts[:collection]
-  Dir.glob("#{dir}/*") do |d|
+  Dir.glob("#{dir}/**/*").grep(/[^bag]/) do |d|
     object = File.basename(d)
-    normalized_object = object.gsub!(/[^0-9A-Za-z.\-]/, '_')# Dir.glob("#{temp_location}/*.*") do |f|
-      #   Openstack.ingest_newspaper(f,metadata)
-      # end
-    puts normalized_object
-    if result.num_rows == 0
-      insert = "INSERT INTO digitization_noids_copy(object_name, collection, delivery) VALUES ('#{normalized_object}', '#{collection}', '#{delivery}')"
-      puts insert
-      #mysql_query(mysql_connection, insert) unless dryrun
-      properties = Helpers.read_properties('properties.yml')
-      temp_dir = properties['temp_dir']
-      target_dir = File.join(temp_dir, normalized_object)
-      create_bag(target_dir, Dir[d], false)
-      temp_location = temp_dir + "/" + normalized_object + "_tar"
-      Utils.tar(File.join(temp_location, '1.tar'), "#{target_dir}")
-      File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
-      noid = Utils.noid
-      metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>normalized_object}
-      # #Openstack.ingest_generic("#{temp_location}/1.tar", metadata)
-      update = "UPDATE digitization_noids set noid = '#{noid}' where object_name = '#{normalized_object}'"
-      File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
-      # puts update
-      # mysql_query(mysql_connection, update) unless dryrun
-      # cleanup(temp_location)
-    else
-      puts "There is a duplicated record in the database: check #{issue_path}"
-    end
+    puts d
+    #normalized_object = object.gsub!(/[^0-9A-Za-z.\-]/, '_')# Dir.glob("#{temp_location}/*.*") do |f|
+    #puts normalized_object
+
+
+
+
+
   end
 end
+
+
+
 
 def steele(opts,mysql_connection)
   dir = opts[:directory]
@@ -301,8 +324,7 @@ def steele(opts,mysql_connection)
     puts item
     pagecount = Dir.glob("#{item_path}/**/*.jp2").count
     #check if item exsit in database
-    insert = "INSERT INTO steele_copy(unit, digstatus, delivery, scanimages,checkin) VALUES ('#{item}', 'digitized', '#{delivery}', '#{pagecount}',NOW())
-                ON DUPLICATE KEY UPDATE unit = VALUES(unit), digstatus=VALUES(digstatus), delivery=VALUES(delivery), scanimages=VALUES(scanimages), checkin=VALUES(checkin)"
+    insert = "INSERT INTO steele(unit, digstatus, delivery, scanimages,checkin) VALUES ('#{item}', 'digitized', '#{delivery}', '#{pagecount}',NOW()) ON DUPLICATE KEY UPDATE digstatus=VALUES(digstatus), delivery=VALUES(delivery), scanimages=VALUES(scanimages), checkin=VALUES(checkin)"
     puts insert
     #result = mysql_query(mysql_connection, insert) unless dryrun
     properties = Helpers.read_properties('properties.yml')
@@ -319,7 +341,8 @@ def steele(opts,mysql_connection)
     #delete folders before tar
     noid = Utils.noid
     metadata = {"noid" => noid, "peelnum" => item }
-    update = "UPDATE steele_copy set noid = '#{noid}' where unit = '#{item}'"
+    File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
+    update = "UPDATE steele set noid = '#{noid}' where unit = '#{item}'"
     File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
     # mysql_query(mysql_connection, update) unless dryrun
     #cleanup(temp_location)
@@ -395,10 +418,10 @@ end
   logger = Logger.new(logfile)
   logger.info "Start Ingest the directory #{dir}"
   #Virus Scanning
-  logger.info "Start scanning the directory for virus"
-  scan_result = antivirus_scan(dir)
-  logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
-  logger.info scan_result.to_s
+  # logger.info "Start scanning the directory for virus"
+  # scan_result = antivirus_scan(dir)
+  # logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
+  # logger.info scan_result.to_s
   #Generating filelist
   logger.info "Generating list of files within the directory #{dir}"
   generate_filelist(dir, file_list)
@@ -440,9 +463,9 @@ end
   end
   Helpers.close_mysql_connection(connection)
   #upload to jeoffry
-  Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
-    # upload a file or directory to the remote host
-    if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/var/peel-scripts-ruby/upload")
-      puts "upload Finish"
-    end
-  end
+  # Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
+  #   # upload a file or directory to the remote host
+  #   if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/var/peel-scripts-ruby/upload")
+  #     puts "upload Finish"
+  #   end
+  # end

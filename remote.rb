@@ -37,6 +37,7 @@ end
 # dryrun = opts[:dry_run]
 # collection = opts[:collection]
 # skip_bag = opts[:skipbag]
+t1 = Time.now
 options = {}
 OptionParser.new do |opts|
   opts.on("-t", "--resource-type TYPE", "Type of resource is to be ingested (peelbib,newspaper, image, steele, other)") do |v|
@@ -76,9 +77,9 @@ type = options[:resource_type]
 dryrun = options[:dry_run]
 collection = options[:collection]
 skip_bag = options[:skipbag]
-logfile = "log/remote-#{last_dir}-#{timestamp}"
-logger = Logger.new(logfile)
-logger.info "Start check if upload Successfully"
+#logfile = "log/remote-#{last_dir}-#{timestamp}"
+#logger = Logger.new(logfile)
+#logger.info "Start check if upload Successfully"
 #check if tar file changes
 connection = Helpers.set_mysql_connection
 Dir.glob("upload/**/*.xml") do |f|
@@ -103,7 +104,7 @@ Dir.glob("upload/**/*.xml") do |f|
   metadata=File.open(File.join(tar_path,"metadata.marshal"), "r"){|from_file| Marshal.load(from_file)}
   puts metadata
   if type == "newspaper"
-    Dir.glob("#{tar_path}/*.*") do |f|
+    Dir.glob("#{tar_path}/*.{tar,pdf}*") do |f|
       Openstack.ingest_newspaper(f,metadata)
     end
   elsif type == "peelbib"
@@ -111,17 +112,22 @@ Dir.glob("upload/**/*.xml") do |f|
       Openstack.ingest_peelbib(f, metadata)
     end
   elsif type == "steele"
-    Dir.glob("#{tar_path}/*.*") do |f|
+    Dir.glob("#{tar_path}/*.tar") do |f|
       Openstack.ingest_steele(f, metadata)
     end
+
   elsif type == "generic"
     Openstack.ingest_generic("#{tar_path}/1.tar", metadata)
   end
   #update the database
   File.open(File.join(tar_path,'update.txt')).each do |line|
     puts line
-    #result = mysql_query(connection, line) unless dryrun
+    result = mysql_query(connection, line) unless dryrun
    end
  end
  Helpers.close_mysql_connection(connection)
+ t2 = Time.now
+ delta = t2 - t1
+ p "--------------------------------------Success---------------------------------"
+ p "------------------This operation takes #{delta} seconds-----------------------"
 # #check in the database

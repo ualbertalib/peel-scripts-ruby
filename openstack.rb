@@ -7,7 +7,8 @@ module Openstack
 
   def self.retrieve_noid(noid, container)
     properties = YAML.load_file('properties.yml')
-    temp_dir = properties['temp_dir']
+    #temp_dir = properties['temp_dir']
+    temp_dir="tmp"
     openstack_swift_url = properties["openstack_swift_url"]
     puts temp_dir
     FileUtils.mkdir_p(temp_dir) && FileUtils.chdir(temp_dir)
@@ -53,12 +54,18 @@ module Openstack
     date = metadata['date']
     edition = metadata['edition']
     noid = metadata['noid']
+    # extension = File.extname(file)
+    # file_type = File.basename(file).split('.').first
     extension = File.extname(file)
-    file_type = File.basename(file).split('.').first
+    if extension == ".tar"
+      file_type = File.basename(file).split('.').first
+    elsif extension == ".pdf"
+      file_type = "pdf"
+    end
     openstack_swift_url = properties["openstack_swift_url"]
     put_url = "#{openstack_swift_url}/newspaper/#{noid}/#{file_type}/1#{extension}"
     put_location = "#{noid}/#{file_type}/1#{extension}"
-    swift_cmd =  "swift upload -H \"X-Object-Meta-Newspaper: #{publication}\" -H \"X-Object-Meta-Year: #{year}\" -H \"X-Object-Meta-Month: #{month}\" -H \"X-Object-Meta-Day: #{date}\" newspapers  #{file} --object-name=#{put_location}"
+    swift_cmd =  "swift upload -H \"X-Object-Meta-Newspaper: #{publication}\" -H \"X-Object-Meta-Year: #{year}\" -H \"X-Object-Meta-Month: #{month}\" -H \"X-Object-Meta-Day: #{date}\" test  #{file} --object-name=#{put_location}"
     puts swift_cmd
     stdin, stdout, stderr = Open3.capture3(swift_cmd)
     puts stdin
@@ -98,7 +105,7 @@ module Openstack
   def self.ingest_steele(file, metadata)
     checksum = Digest::MD5.hexdigest(file)
     size = File.size(file)
-    noid = metadta['noid']
+    noid = metadata['noid']
     steelenum = metadata['steelenum']
     extension = File.extname(file)
     if extension == ".tar"
@@ -114,12 +121,12 @@ module Openstack
     openstack_swift_url = properties["openstack_swift_url"]
     put_url = "#{openstack_swift_url}/steele/#{noid}/#{file_type}/1#{extension}"
     put_location = "#{noid}/#{file_type}/1#{extension}"
-    swift_cmd =  "swift upload -H \"X-Object-Meta-Steele: #{steelenum}\" test #{file} --object-name=#{put_location}"
+    swift_cmd =  "swift upload -H \"X-Object-Meta-Steele: #{steelenum}\" steele #{file} --object-name=#{put_location}"
     puts swift_cmd
     stdin, stdout, stderr = Open3.capture3(swift_cmd)
     puts stdin
     puts stdout
-    puts stder
+    puts stderr
   end
 
 
