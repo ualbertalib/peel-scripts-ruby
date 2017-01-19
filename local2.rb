@@ -64,7 +64,6 @@ end
 
 def ingest_files(issue_path, saved_location, file_type)
   target_dir = File.join(saved_location, file_type.upcase)
-  puts target_dir
   FileUtils::mkdir_p target_dir
   issue = issue_path.split("/").last
   case file_type
@@ -172,11 +171,11 @@ def newspaper(opts, mysql_connection)
     # puts date
     # puts month
     # puts edition
-    insert = "INSERT INTO newspapers_copy(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
+    insert = "INSERT INTO newspapers(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
     puts insert
     result = mysql_query(mysql_connection, insert) unless dryrun
     properties = Helpers.read_properties('properties.yml')
-    temp_dir = properties['temp_dir']
+    temp_dir = 'upload_news'
     temp_location = File.join(temp_dir, issue)
     puts temp_location
     ingest_files(issue_path, temp_location, 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0
@@ -191,7 +190,7 @@ def newspaper(opts, mysql_connection)
     # Dir.glob("#{temp_location}/*.*") do |f|
     #   Openstack.ingest_newspaper(f,metadata)
     # end
-    update = "UPDATE newspapers_copy set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
+    update = "UPDATE newspapers set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
     #mysql_query(mysql_connection, update) unless dryrun
     #write into a file instead of execute in the database
     File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
@@ -226,7 +225,7 @@ def peel(opts, mysql_connection)
     puts insert
     #result = mysql_query(mysql_connection, insert) unless dryrun#instead of select
     properties = Helpers.read_properties('properties.yml')
-    temp_dir = properties['temp_dir']
+    temp_dir = 'upload55'
     temp_location = File.join(temp_dir, item)
     puts temp_location
     ingest_files(item_path, temp_location, 'jp2') if Dir.glob("#{item_path}/**/*.jp2").count > 0

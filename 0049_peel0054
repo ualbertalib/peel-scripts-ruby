@@ -1,0 +1,30 @@
+/var/lib/gems/2.3.0/gems/ddr-antivirus-2.1.1/lib/ddr/antivirus/adapters/clamd_scanner_adapter.rb:22:in `scan': 
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N028588/data/IMG/00000009.jp2: BC.Win.Exploit.CVE_2011_4516-1 FOUND (Ddr::Antivirus::VirusFoundError)
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N030138/data/IMG/00000143.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N031202/data/IMG/00000047.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N032347/data/IMG/00000064.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N032358/data/IMG/00000092.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N032367/data/IMG/00000043.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N032719/data/IMG/00000022.jp2: BC.Win.Exploit.CVE_2011_4516-1 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N032724/data/IMG/00000046.jp2: BC.Win.Exploit.CVE_2011_4516-1 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N032724/data/IMG/00000034.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N032740/data/IMG/00000117.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N033208/data/IMG/00000017.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N033881/data/IMG/00000021.jp2: BC.Win.Exploit.CVE_2011_4516-1 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N033924/data/IMG/00000076.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035353/data/IMG/00000036.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035353/data/IMG/00000216.jp2: BC.Win.Exploit.CVE_2011_4516-1 FOUND
+/var/lib/gems/2.3.0/gems/ddr-antivirus-2.1.1/lib/ddr/antivirus/adapters/clamd_scanner_adapter.rb:22:in `scan': /media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035364/data/IMG/00000381.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND (Ddr::Antivirus::VirusFoundError)
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035364/data/IMG/00000178.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035368/data/IMG/00000497.jp2: BC.Win.Exploit.CVE_2011_4516-1 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035369/data/IMG/00000521.jp2: BC.Win.Exploit.CVE_2011_4516-1 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035373/data/IMG/00000369.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035375/data/IMG/00000342.jp2: BC.Win.Exploit.CVE_2011_4516-1 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035378/data/IMG/00000192.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035379/data/IMG/00000236.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035385/data/IMG/00000328.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+/media/baihong/Rugged-6/UAL/Shipment_049/UAL-PEE-0054/N035385/data/IMG/00000124.jp2: BC.Win.Exploit.CVE_2011_4516-1.CVE_2011_4516 FOUND
+
+----------- SCAN SUMMARY -----------
+Infected files: 10
+Time: 2329.534 sec (38 m 49 s)

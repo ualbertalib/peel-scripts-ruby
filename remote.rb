@@ -72,7 +72,7 @@ p options
 timestamp = Time.now.to_s.tr(" ", "_")
 dir = options[:directory]
 file_list = options[:file_list]
-last_dir = dir.split("/").last
+#last_dir = dir.split("/").last
 type = options[:resource_type]
 dryrun = options[:dry_run]
 collection = options[:collection]
@@ -82,11 +82,11 @@ skip_bag = options[:skipbag]
 #logger.info "Start check if upload Successfully"
 #check if tar file changes
 connection = Helpers.set_mysql_connection
-Dir.glob("upload/**/*.xml") do |f|
-  #puts f
+Dir.glob("upload_news/**/tarlist.xml") do |f|
+  puts f
   tar_path = File.dirname(f)
   folder = tar_path.split("/").last
-  #puts folder
+  puts folder
   DirToXml.md5remote(tar_path)
   if FileUtils.compare_file(File.join(tar_path,'tarlist.xml'),File.join(tar_path, 'tarlist2.xml'))
     puts "#{folder}: file transfer correct"
@@ -108,7 +108,7 @@ Dir.glob("upload/**/*.xml") do |f|
       Openstack.ingest_newspaper(f,metadata)
     end
   elsif type == "peelbib"
-    Dir.glob("#{tar_path}/*.*") do |f|
+    Dir.glob("#{tar_path}/*.tar") do |f|
       Openstack.ingest_peelbib(f, metadata)
     end
   elsif type == "steele"
@@ -124,8 +124,8 @@ Dir.glob("upload/**/*.xml") do |f|
     puts line
     result = mysql_query(connection, line) unless dryrun
    end
- end
- Helpers.close_mysql_connection(connection)
+  end
+  Helpers.close_mysql_connection(connection)
  t2 = Time.now
  delta = t2 - t1
  p "--------------------------------------Success---------------------------------"

@@ -1,6 +1,9 @@
 log/
 deliveries/*.xml
 upload/
+upload_91/
 vendor/
 tmp/
+backup/
 *.yml
+*.marshal

@@ -65,7 +65,7 @@ module Openstack
     openstack_swift_url = properties["openstack_swift_url"]
     put_url = "#{openstack_swift_url}/newspaper/#{noid}/#{file_type}/1#{extension}"
     put_location = "#{noid}/#{file_type}/1#{extension}"
-    swift_cmd =  "swift upload -H \"X-Object-Meta-Newspaper: #{publication}\" -H \"X-Object-Meta-Year: #{year}\" -H \"X-Object-Meta-Month: #{month}\" -H \"X-Object-Meta-Day: #{date}\" test  #{file} --object-name=#{put_location}"
+    swift_cmd =  "swift upload -H \"X-Object-Meta-Newspaper: #{publication}\" -H \"X-Object-Meta-Year: #{year}\" -H \"X-Object-Meta-Month: #{month}\" -H \"X-Object-Meta-Day: #{date}\" newspapers  #{file} --object-name=#{put_location}"
     puts swift_cmd
     stdin, stdout, stderr = Open3.capture3(swift_cmd)
     puts stdin
