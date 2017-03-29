@@ -82,7 +82,7 @@ def ingest_files(issue_path, saved_location, file_type)
   create_bag(target_dir, files, false)
   Utils.tar(File.join(saved_location, "#{file_type.downcase}.tar"), "#{target_dir}")
   #delete untar file
-  FileUtils.rm_rf(target_dir)
+  #FileUtils.rm_rf(target_dir)
   #create md5 for each file in a folder
   DirToXml.generatemd5(saved_location)
 end
@@ -153,7 +153,7 @@ def newspaper(opts, mysql_connection)
   delivery = opts[:delivery]
   drive_id = opts[:drive]
   dryrun = opts[:dryrun]
-  Dir.glob("#{dir}/**/*-METS.xml") do |f|
+  Dir.glob("#{dir}/**/1953052801.xml") do |f|
     #puts f
     issue_path = File.dirname(f)
     whmname = issue_path.split("/").last
@@ -175,7 +175,7 @@ def newspaper(opts, mysql_connection)
     puts insert
     result = mysql_query(mysql_connection, insert) unless dryrun
     properties = Helpers.read_properties('properties.yml')
-    temp_dir = 'upload_news'
+    temp_dir = 'upload_sga'
     temp_location = File.join(temp_dir, issue)
     puts temp_location
     ingest_files(issue_path, temp_location, 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0

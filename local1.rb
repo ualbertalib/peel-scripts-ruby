@@ -295,13 +295,13 @@ def generic(opts, mysql_connection)
   Dir.glob("#{dir}/**/*.tif") do |d|
     object = File.basename(d)
     object_id = object.split(".").first
-    #puts object_id
-    #normalized_object = object.gsub!(/[^0-9A-Za-z.\-]/, '_')# Dir.glob("#{temp_location}/*.*") do |f|
-    #puts normalized_object
-    insert = "INSERT INTO digitization_noids_copy(object_name, collection, delivery) VALUES ('#{object_id}', '#{collection}', '#{delivery}')"
+    puts object_id
+    normalized_object = object.gsub!(/[^0-9A-Za-z.\-]/, '_')# Dir.glob("#{temp_location}/*.*") do |f|
+    puts normalized_object
+    insert = "INSERT INTO digitization_noids(object_name, collection, delivery) VALUES ('#{object_id}', '#{collection}', '#{delivery}')"
     #puts insert
     properties = Helpers.read_properties('properties.yml')
-    temp_dir = "upload_91"
+    temp_dir = "upload"
     temp_location = File.join(temp_dir, object_id)
     #puts temp_location
     target_dir = File.join(temp_location,"TIF")
@@ -310,7 +310,7 @@ def generic(opts, mysql_connection)
     files = Dir.glob(d)
     FileUtils::mkdir_p target_dir
     create_bag(target_dir, files, false)
-    Utils.tar(File.join(temp_location, "tif.tar"), "#{target_dir}")
+    Utils.tar(File.join(temp_location, "1.tar"), "#{target_dir}")
     #delete untar file
     FileUtils.rm_rf(target_dir)
     #create md5 for each file in a folder
@@ -377,28 +377,6 @@ end
 
 
 
-# This script is to ingest any given folder with digitized materials into OpenStack
-  # opts = Slop.parse do |o|
-  #   o.string '-t', '--resource-type', 'Type of resource is to be ingested (peelbib,newspaper, image, steele, other)'
-  #   o.bool '-dry', '--dry-run', 'Dry run of the ingest'
-  #   o.string '-d', '--directory', 'Directory that need to be ingested'
-  #   o.string '-l', '--file-list', 'File name of the file list output'
-  #   o.string '-delivery', '--delivery', 'Delivery number that this ingest batch will be logged in the database'
-  #   o.string '-drive', '--drive-id', 'last four digits of the hard drive ID this delivery is on'
-  #   o.string '-p', '--publication', 'Three digit publication code for newspaper and magazine'
-  #   o.string '-c', '--collection', 'Collection name that this ingest batch belongs to'
-  #   o.bool '-b', '--skipbag', 'Skip checking if the delivery is a valid bag'
-  # end
-  #
-  # puts opts.to_hash
-  # timestamp = Time.now.to_s.tr(" ", "_")
-  # dir = opts[:directory]
-  # file_list = opts[:file_list]
-  # last_dir = dir.split("/").last
-  # type = opts[:resource_type]
-  # dryrun = opts[:dry_run]
-  # collection = opts[:collection]
-  # skip_bag = opts[:skipbag]
   options = {}
   OptionParser.new do |opts|
     opts.on("-t", "--resource-type TYPE", "Type of resource is to be ingested (peelbib,newspaper, image, steele, other)") do |v|
@@ -441,38 +419,38 @@ end
   logfile = "log/local-#{last_dir}-#{timestamp}"
   logger = Logger.new(logfile)
   logger.info "Start Ingest the directory #{dir}"
-  # #Virus Scanning
-  # logger.info "Start scanning the directory for virus"
-  # scan_result = antivirus_scan(dir)
-  # logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
-  # logger.info scan_result.to_s
-  # #Generating filelist
-  # logger.info "Generating list of files within the directory #{dir}"
-  # generate_filelist(dir, file_list)
-  # valid = DirToXml.validation(dir, file_list)
-  # logger.info "Successfully generated a file list at #{file_list}" if valid
-  # puts "xml correct" if valid
-  # logger.error "Error when creating file list for #{dir}" if !valid
-  # puts "xml wrong" if !valid
-  # #Validate bag
-  # unless skip_bag
-  #   logger.info "Start to valid bags in the delivery"
-  #   bagcount = Dir.glob(dir+"/**/bagit.txt").count
-  #   logger.info "Validate #{bagcount} bag directories in the delivery"
-  #   validate_bag(dir)
-  #   Dir.glob(dir+"/**/bagit.txt") do |f|
-  #     d = File.dirname(f)
-  #     bag_valid = validate_bag(d)
-  #     if bag_valid
-  #       logger.info "Directory #{d} is a valid bag"
-  #       FileUtils.touch (d +'/bag_verified')
-  #     else
-  #       logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
-  #       FileUtils.touch (d+'/bag_not_verified')
-  #     end
-  #   end
-  #   puts "bag finish"
-  # end
+  #Virus Scanning
+  logger.info "Start scanning the directory for virus"
+  scan_result = antivirus_scan(dir)
+  logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
+  logger.info scan_result.to_s
+  #Generating filelist
+  logger.info "Generating list of files within the directory #{dir}"
+  generate_filelist(dir, file_list)
+  valid = DirToXml.validation(dir, file_list)
+  logger.info "Successfully generated a file list at #{file_list}" if valid
+  puts "xml correct" if valid
+  logger.error "Error when creating file list for #{dir}" if !valid
+  puts "xml wrong" if !valid
+  #Validate bag
+  unless skip_bag
+    logger.info "Start to valid bags in the delivery"
+    bagcount = Dir.glob(dir+"/**/bagit.txt").count
+    logger.info "Validate #{bagcount} bag directories in the delivery"
+    validate_bag(dir)
+    Dir.glob(dir+"/**/bagit.txt") do |f|
+      d = File.dirname(f)
+      bag_valid = validate_bag(d)
+      if bag_valid
+        logger.info "Directory #{d} is a valid bag"
+        FileUtils.touch (d +'/bag_verified')
+      else
+        logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
+        FileUtils.touch (d+'/bag_not_verified')
+      end
+    end
+    puts "bag finish"
+  end
   #Checkin to the database
   logger.info "Checkin the delivery into the tracking database"
   connection = Helpers.set_mysql_connection

@@ -31,11 +31,11 @@ module Openstack
     collection = metadata['collection']
     file_name = metadata['file_name']
     extension = File.extname(file)
-    file_type = File.basename(file).split(',').first
+    file_type = File.basename(file).split('.').first
     openstack_swift_url = properties["openstack_swift_url"]
     put_url = "#{openstack_swift_url}/digitization/#{noid}/1#{extension}"
     put_location = "#{noid}/1#{extension}"
-    swift_cmd =  "swift upload -H \"X-Object-Meta-Collection: #{collection}\" -H \"X-Object-Meta-filename: #{file_name}\" digitization  #{file} --object-name=#{put_location}"
+    swift_cmd =  "swift upload -H \"X-Object-Meta-Collection: #{collection}\" -H \"X-Object-Meta-filename: #{file_name}\" digitization #{file} --object-name=#{put_location}"
     puts swift_cmd
     stdin, stdout, stderr = Open3.capture3(swift_cmd)
     puts stdin
@@ -121,7 +121,7 @@ module Openstack
     openstack_swift_url = properties["openstack_swift_url"]
     put_url = "#{openstack_swift_url}/steele/#{noid}/#{file_type}/1#{extension}"
     put_location = "#{noid}/#{file_type}/1#{extension}"
-    swift_cmd =  "swift upload -H \"X-Object-Meta-Steele: #{steelenum}\" steele #{file} --object-name=#{put_location}"
+    swift_cmd =  "swift upload -H \"X-Object-Meta-Steele: #{steelenum}\" digitization #{file} --object-name=#{put_location}"
     puts swift_cmd
     stdin, stdout, stderr = Open3.capture3(swift_cmd)
     puts stdin

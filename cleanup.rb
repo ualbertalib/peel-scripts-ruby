@@ -17,7 +17,7 @@ def mysql_query(connection,query)
 end
 ary = Array.new
 connection = Helpers.set_mysql_connection
-cmd="select code from items"
+cmd='select code from items where digstatus ="digitized" and copyright ="clear" and noid is not null and delivery like "bkstg%"'
 rs = mysql_query(connection, cmd)
 rs.each do |row|
         #puts "#{row['code']}"
@@ -26,7 +26,7 @@ rs.each do |row|
 Helpers.close_mysql_connection(connection)
 puts ary
 #File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
-File.open('delete_folder.marshal', "w"){|to_file| Marshal.dump(ary, to_file)}
+File.open('object.marshal', "w"){|to_file| Marshal.dump(ary, to_file)}
 puts"------------------------------"
 # Dir.glob("upload/**/tarlist.xml") do |f|
 #   # puts f
