@@ -10,3 +10,4 @@ tmp/
 backup/
 *.yml
 *.marshal
+*.csv
