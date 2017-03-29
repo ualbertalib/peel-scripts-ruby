@@ -1,6 +1,9 @@
 log/
 deliveries/*.xml
 upload/
+newspaper_to_upload/
+upload_islam/
+upload_islam2/
 upload_91/
 vendor/
 tmp/
