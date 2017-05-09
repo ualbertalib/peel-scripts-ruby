@@ -35,3 +35,20 @@ ruby ingest.rb -t peelbib -d /The_drive/ShipmentSample/ -drive 8093 -l deliverie
 * To documenent the details to run the script. 
 * To ingest Steele materials
 * Complete the documentation for ingesting the generic objects. 
+
+  
+###To track shipping list
+  This is script that check the status of items listed in the shipping list. The reports includes:
+  1. missing objects: report any object that is missing from the tracking database for each shipping list. insert missing objects into the tracking database with digstatus as shipped.
+  2. mounted: For objects that are already in the tracking database,it includes all objects that have a digstatus:mounted. 
+  3. not_in_openstack:  For objects that are already in the tracking database, it includes objects that don't have a noid number.
+  4. parent: reports include all objects which is a parent of a book series.
+  5. mods_record: include the mods records status, version information of all objects who should have a mod reocords. (series parent, single items).
+
+Usage: 
+       1. install surporting gem
+         gem install spreadsheet #install
+       2. To generate the first three reports
+         ruby tracking.rb -f  PATH_TO_FILE
+       3. To generate the last two reports result is 1-3 report
+         ruby records -f PATH_TO-FILE
