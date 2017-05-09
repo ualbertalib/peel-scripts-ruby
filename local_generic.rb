@@ -62,15 +62,17 @@ def mysql_query(connection,query)
   end
 end
 
-def ingest_files(issue_path, saved_location, file_type)
+def ingest_files(issue_path, saved_location, file_type,object)
   target_dir = File.join(saved_location, file_type.upcase)
   FileUtils::mkdir_p target_dir
   issue = issue_path.split("/").last
   case file_type
   when "pdf", "jp2"
-    files = Dir.glob(issue_path+"/**/*."+file_type.downcase)
+    #files = Dir.glob(issue_path+"/**/*."+file_type.downcase)
+    files = Dir.glob(issue_path+"/**/#{object}.jp2")
   when "tiff"
-    files = Dir.glob(issue_path+"/**/*.tif")
+    files = Dir.glob(issue_path+"/**/#{object}.tif")
+    #files = Dir.glob(issue_path+"/**/*.tif")
   when "alto"
     files = Dir.glob(issue_path+"**/ALTO/*.xml")
     #files = Dir.glob(issue_path+"/**/.....xml")
@@ -98,28 +100,27 @@ end
 
 
 def generic(opts, mysql_connection)
-  puts "I am in"
   dir = opts[:directory]
   puts dir
   delivery = opts[:delivery]
   dryrun = opts[:dryrun]
   collection = opts[:collection]
-  Dir.glob("#{dir}/**/*.pdf") do |d|
+  Dir.glob("#{dir}/**/*.jp2") do |d|
     #puts d
-    #object = File.basename(d).split(".")[0,3]
-    object = File.dirname(d).split("/")[-2]
-    object_path = File.dirname(d)
+    object = File.basename(d).split(".").first
+    #object = File.dirname(d).split("/")[-2]
+    object_path = dir
     puts object
     #puts object_path
     insert = "INSERT INTO digitization_noids(object_name, collection, delivery) VALUES ('#{object}', '#{collection}', '#{delivery}') ON DUPLICATE KEY UPDATE collection=VALUES(collection), delivery=VALUES(delivery)"
     puts insert
-    temp_dir = "upload"
+    temp_dir = "upload_airphoto-1"
     temp_location = File.join(temp_dir, object)
     puts temp_location
-    ingest_files(object_path, temp_location, 'jp2') if Dir.glob("#{object_path}/**/*.jp2").count > 0
-    ingest_files(object_path, temp_location, 'alto')
-    ingest_files(object_path, temp_location, 'mets')
-    ingest_files(object_path, temp_location, 'pdf') if Dir.glob("#{object_path}/**/*.pdf").count > 0
+    ingest_files(object_path, temp_location, 'jp2',object)
+    ingest_files(object_path, temp_location, 'tiff',object)
+    # ingest_files(object_path, temp_location, 'mets')
+    # ingest_files(object_path, temp_location, 'pdf') if Dir.glob("#{object_path}/**/*.pdf").count > 0
     File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
     noid = Utils.noid
     metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>object}
@@ -180,11 +181,11 @@ end
   logfile = "log/local-#{last_dir}-#{timestamp}"
   logger = Logger.new(logfile)
   logger.info "Start Ingest the directory #{dir}"
-  #Virus Scanning
-  logger.info "Start scanning the directory for virus"
-  scan_result = antivirus_scan(dir)
-  logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
-  logger.info scan_result.to_s
+  # #Virus Scanning
+  # logger.info "Start scanning the directory for virus"
+  # scan_result = antivirus_scan(dir)
+  # logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
+  # logger.info scan_result.to_s
   #Generating filelist
   logger.info "Generating list of files within the directory #{dir}"
   generate_filelist(dir, file_list)

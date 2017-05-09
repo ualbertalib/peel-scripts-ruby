@@ -1,7 +1,7 @@
 require 'fileutils'
 
-ary=File.open("delete_folder.marshal", "r"){|from_file| Marshal.load(from_file)}
-Dir.glob("upload/**/tarlist.xml") do |f|
+ary=File.open("object_to_delete.marshal", "r"){|from_file| Marshal.load(from_file)}
+Dir.glob("upload_islam2/**/tarlist.xml") do |f|
   # puts f
   tar_path = File.dirname(f)
   #puts tar_path

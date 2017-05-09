@@ -82,7 +82,7 @@ def ingest_files(issue_path, saved_location, file_type)
   create_bag(target_dir, files, false)
   Utils.tar(File.join(saved_location, "#{file_type.downcase}.tar"), "#{target_dir}")
   #delete untar file
-  FileUtils.rm_rf(target_dir)
+  #FileUtils.rm_rf(target_dir)
   #create md5 for each file in a folder
   DirToXml.generatemd5(saved_location)
 end
@@ -419,19 +419,19 @@ end
   logfile = "log/local-#{last_dir}-#{timestamp}"
   logger = Logger.new(logfile)
   logger.info "Start Ingest the directory #{dir}"
-  #Virus Scanning
-  logger.info "Start scanning the directory for virus"
-  scan_result = antivirus_scan(dir)
-  logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
-  logger.info scan_result.to_s
-  #Generating filelist
-  logger.info "Generating list of files within the directory #{dir}"
-  generate_filelist(dir, file_list)
-  valid = DirToXml.validation(dir, file_list)
-  logger.info "Successfully generated a file list at #{file_list}" if valid
-  puts "xml correct" if valid
-  logger.error "Error when creating file list for #{dir}" if !valid
-  puts "xml wrong" if !valid
+  # #Virus Scanning
+  # logger.info "Start scanning the directory for virus"
+  # scan_result = antivirus_scan(dir)
+  # logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
+  # logger.info scan_result.to_s
+  # #Generating filelist
+  # logger.info "Generating list of files within the directory #{dir}"
+  # generate_filelist(dir, file_list)
+  # valid = DirToXml.validation(dir, file_list)
+  # logger.info "Successfully generated a file list at #{file_list}" if valid
+  # puts "xml correct" if valid
+  # logger.error "Error when creating file list for #{dir}" if !valid
+  # puts "xml wrong" if !valid
   #Validate bag
   unless skip_bag
     logger.info "Start to valid bags in the delivery"
@@ -451,19 +451,19 @@ end
     end
     puts "bag finish"
   end
-  #Checkin to the database
-  logger.info "Checkin the delivery into the tracking database"
-  connection = Helpers.set_mysql_connection
-  if type == "newspaper"
-    newspaper(options, connection)
-  elsif type == "peel"
-    peel(options,connection)
-  elsif type == "steele"
-    steele(options,connection)
-  elsif type == "generic"
-    generic(options, connection)
-  end
-  Helpers.close_mysql_connection(connection)
+  # #Checkin to the database
+  # logger.info "Checkin the delivery into the tracking database"
+  # connection = Helpers.set_mysql_connection
+  # if type == "newspaper"
+  #   newspaper(options, connection)
+  # elsif type == "peel"
+  #   peel(options,connection)
+  # elsif type == "steele"
+  #   steele(options,connection)
+  # elsif type == "generic"
+  #   generic(options, connection)
+  # end
+  # Helpers.close_mysql_connection(connection)
   # #Upload to jeoffry
   # Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
   #   # upload a file or directory to the remote host

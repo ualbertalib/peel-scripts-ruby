@@ -2,7 +2,7 @@ require 'bagit'
 require 'optparse'
 
 number = 0
-Dir.glob("/media/baihong/UofA\ Drive\ 9199-2/UofAlberta/**/manifest-md5.txt") do |d|
+Dir.glob("/media/baihong/UALBERTA2418/GGG_BagIts/**/manifest-md5.txt") do |d|
   p d
   object_path = File.dirname(d)
   #puts object_path

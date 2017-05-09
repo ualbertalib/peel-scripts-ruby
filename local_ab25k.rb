@@ -97,13 +97,14 @@ end
 
 
 def generic(opts, mysql_connection)
-  ary = Array.new
-  Dir.glob("/home/baihong/peel-scripts-ruby/upload_islam/**/tarlist.xml") do |d|
-    #puts d
-    object_name=File.dirname(d).split("/").last
-    ary.push(object_name)
-    #puts object_name
-  end
+  # ary = Array.new
+  # Dir.glob("/home/baihong/peel-scripts-ruby/upload_islam/**/tarlist.xml") do |d|
+  #   #puts d
+  #   object_name=File.dirname(d).split("/").last
+  #   ary.push(object_name)
+  #   #puts object_name
+  # end
+  ary=File.open("object_to_delete.marshal", "r"){|from_file| Marshal.load(from_file)}
   dir = opts[:directory]
   #puts dir
   delivery = opts[:delivery]
@@ -119,7 +120,7 @@ def generic(opts, mysql_connection)
       puts "#{object} not include"
     insert = "INSERT INTO digitization_noids(object_name, collection, delivery) VALUES ('#{object}', '#{collection}', '#{delivery}') ON DUPLICATE KEY UPDATE collection=VALUES(collection),delivery=VALUES(delivery) "
     puts insert
-    temp_dir = "upload_islam2"
+    temp_dir = "upload_islam3"
     temp_location = File.join(temp_dir, object)
     puts temp_location
     target_dir = File.join(temp_location,"WAV")
