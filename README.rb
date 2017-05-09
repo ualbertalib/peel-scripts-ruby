@@ -47,8 +47,8 @@ ruby ingest.rb -t peelbib -d /The_drive/ShipmentSample/ -drive 8093 -l deliverie
 
 Usage: 
        1. install surporting gem
-         gem install spreadsheet #install
+         like： gem install spreadsheet 
        2. To generate the first three reports
          ruby tracking.rb -f  PATH_TO_FILE
-       3. To generate the last two reports result is 1-3 report
-         ruby records -f PATH_TO-FILE
+       3. To generate the last two reports
+         ruby records.rb -f PATH_TO_FILE
