@@ -12,7 +12,7 @@ OptionParser.new do |opts|
 end.parse!
 dir = options[:directory]
 
-CSV.open("results/thumbs_r.csv","w",:write_headers=> true,:headers => ["Type","Name","Length","Width"]) do |csv|
+CSV.open("results/web_r.csv","w",:write_headers=> true,:headers => ["Type","Name","Length","Width"]) do |csv|
 Dir.glob("#{dir}/*r.tif") do |f|
    puts f
    file = File.basename(f)
@@ -21,15 +21,20 @@ Dir.glob("#{dir}/*r.tif") do |f|
    code= file.split(".").first[2,3]
    puts filename
    puts code
-   target_dir = "PC/#{code}/thumbs"
-   if Dir.exist?(target_dir)
-     value= %x(convert #{f} -units PixelsPerInch -density 72 -quality 90 -resize 200 #{target_dir}/#{filename}.jpg)
-     puts value
-   else
+   target_dir = "/diginit/www/pcimages/PC/#{code}/web"
+   if not Dir.exist?(target_dir)
      FileUtils::mkdir_p target_dir
-     value= %x(convert #{f} -units PixelsPerInch -density 72 -quality 90 -resize 200 #{target_dir}/#{filename}.jpg)
-     puts value
    end
+   value= %x(convert #{f} -units PixelsPerInch -density 72 -quality 90 -resize 800 #{target_dir}/#{filename}.jpg)
+   puts value
+  #  if Dir.exist?(target_dir)
+  #    value= %x(convert #{f} -units PixelsPerInch -density 72 -quality 90 -resize 200 #{target_dir}/#{filename}.jpg)
+  #    puts value
+  #  else
+  #    FileUtils::mkdir_p target_dir
+  #    value= %x(convert #{f} -units PixelsPerInch -density 72 -quality 90 -resize 200 #{target_dir}/#{filename}.jpg)
+  #    puts value
+  #  end
    identify = %x(identify #{target_dir}/#{filename}.jpg)
    puts identify
    result_list = identify.split(" ")
@@ -40,7 +45,7 @@ Dir.glob("#{dir}/*r.tif") do |f|
    puts length
    width = result_list[2][4,3]
    puts width
-   csv << ["thumbs",item,length,width]
+   csv << ["web",item,length,width]
 
 
 

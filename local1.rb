@@ -292,7 +292,7 @@ def generic(opts, mysql_connection)
   delivery = opts[:delivery]
   dryrun = opts[:dryrun]
   collection = opts[:collection]
-  Dir.glob("#{dir}/**/*.tif") do |d|
+  Dir.glob("#{dir}/**/*.db") do |d|
     object = File.basename(d)
     object_id = object.split(".").first
     puts object_id
@@ -433,38 +433,38 @@ end
   # logger.error "Error when creating file list for #{dir}" if !valid
   # puts "xml wrong" if !valid
   #Validate bag
-  unless skip_bag
-    logger.info "Start to valid bags in the delivery"
-    bagcount = Dir.glob(dir+"/**/bagit.txt").count
-    logger.info "Validate #{bagcount} bag directories in the delivery"
-    validate_bag(dir)
-    Dir.glob(dir+"/**/bagit.txt") do |f|
-      d = File.dirname(f)
-      bag_valid = validate_bag(d)
-      if bag_valid
-        logger.info "Directory #{d} is a valid bag"
-        FileUtils.touch (d +'/bag_verified')
-      else
-        logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
-        FileUtils.touch (d+'/bag_not_verified')
-      end
-    end
-    puts "bag finish"
-  end
-  # #Checkin to the database
-  # logger.info "Checkin the delivery into the tracking database"
-  # connection = Helpers.set_mysql_connection
-  # if type == "newspaper"
-  #   newspaper(options, connection)
-  # elsif type == "peel"
-  #   peel(options,connection)
-  # elsif type == "steele"
-  #   steele(options,connection)
-  # elsif type == "generic"
-  #   generic(options, connection)
+  # unless skip_bag
+  #   logger.info "Start to valid bags in the delivery"
+  #   bagcount = Dir.glob(dir+"/**/bagit.txt").count
+  #   logger.info "Validate #{bagcount} bag directories in the delivery"
+  #   validate_bag(dir)
+  #   Dir.glob(dir+"/**/bagit.txt") do |f|
+  #     d = File.dirname(f)
+  #     bag_valid = validate_bag(d)
+  #     if bag_valid
+  #       logger.info "Directory #{d} is a valid bag"
+  #       FileUtils.touch (d +'/bag_verified')
+  #     else
+  #       logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
+  #       FileUtils.touch (d+'/bag_not_verified')
+  #     end
+  #   end
+  #   puts "bag finish"
   # end
-  # Helpers.close_mysql_connection(connection)
-  # #Upload to jeoffry
+  #Checkin to the database
+  logger.info "Checkin the delivery into the tracking database"
+  connection = Helpers.set_mysql_connection
+  if type == "newspaper"
+    newspaper(options, connection)
+  elsif type == "peel"
+    peel(options,connection)
+  elsif type == "steele"
+    steele(options,connection)
+  elsif type == "generic"
+    generic(options, connection)
+  end
+  Helpers.close_mysql_connection(connection)
+  #Upload to jeoffry
   # Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
   #   # upload a file or directory to the remote host
   #   if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/var/peel-scripts-ruby/upload")
