@@ -62,21 +62,24 @@ def mysql_query(connection,query)
   end
 end
 
-def ingest_files(issue_path, saved_location, file_type)
+def ingest_files(issue_path, saved_location, file_type,object)
   target_dir = File.join(saved_location, file_type.upcase)
   FileUtils::mkdir_p target_dir
   issue = issue_path.split("/").last
   case file_type
   when "pdf", "jp2"
-    files = Dir.glob(issue_path+"/**/*."+file_type.downcase)
+    #files = Dir.glob(issue_path+"/**/*."+file_type.downcase)
+    files = Dir.glob(issue_path+"/**/#{object}*.jp2")
   when "tiff"
-    files = Dir.glob(issue_path+"/**/*.tif")
+    files = Dir.glob(issue_path+"/**/#{object}*.tif")
+    #files = Dir.glob(issue_path+"/**/*.tif")
   when "alto"
-    #files = Dir.glob(issue_path+"**/ALTO/*.xml")
+    files = Dir.glob(issue_path+"**/ALTO/*.xml")
     #files = Dir.glob(issue_path+"/**/.....xml")
-    files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\d\.xml/)
+    #files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\d\.xml/)
   when "mets"
-    files = Dir.glob(issue_path+"**/*1997121901.xml")
+    files = Dir.glob(issue_path+"**/*-METS.xml")
+    #files = Dir.glob(issue_path+"**/*1997121901.xml")
     #files = Dir.glob(issue_path+"/**/articles_*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
   end
   create_bag(target_dir, files, false)
@@ -97,48 +100,37 @@ end
 
 
 def generic(opts, mysql_connection)
-  # ary = Array.new
-  # Dir.glob("/home/baihong/peel-scripts-ruby/upload_islam/**/tarlist.xml") do |d|
-  #   #puts d
-  #   object_name=File.dirname(d).split("/").last
-  #   ary.push(object_name)
-  #   #puts object_name
-  # end
-  #ary=File.open("object_to_delete.marshal", "r"){|from_file| Marshal.load(from_file)}
   dir = opts[:directory]
-  #puts dir
+  puts dir
   delivery = opts[:delivery]
   dryrun = opts[:dryrun]
   collection = opts[:collection]
-  Dir.glob("#{dir}/*.TIF") do |d|
-    item = File.basename(d).split(".").first
-    object="AB_25K_Topo_#{item}"
+  Dir.glob("#{dir}/**/A11698*.tif") do |d|
+    puts d
+    object = File.basename(d).split("_").first
+    # object = File.dirname(d).split("/")[-1]
     object_path = dir
     puts object
-    puts object_path
-    #if not ary.include?(object)
-      #puts "#{object} not include"
-    insert = "INSERT INTO digitization_noids(object_name, collection, delivery) VALUES ('#{object}', '#{collection}', '#{delivery}') ON DUPLICATE KEY UPDATE collection=VALUES(collection),delivery=VALUES(delivery) "
-    puts insert
-    temp_dir = "upload_ab25k"
+    temp_dir = "upload_arial2"
     temp_location = File.join(temp_dir, object)
+    if not Dir.exist?(temp_location)
+    puts object_path
+    insert = "INSERT INTO digitization_noids(object_name, collection, delivery) VALUES ('#{object}', '#{collection}', '#{delivery}') ON DUPLICATE KEY UPDATE collection=VALUES(collection), delivery=VALUES(delivery)"
+    puts insert
+    # temp_dir = "upload_arial"
+    # temp_location = File.join(temp_dir, object)
     puts temp_location
-    target_dir = File.join(temp_location,"TIF")
-    FileUtils::mkdir_p target_dir
-    files = Dir.glob(object_path+"/#{item}.TIF")
-    create_bag(target_dir, files, false)
-    Utils.tar(File.join(temp_location, "1.tar"), "#{target_dir}")
-    #delete untar file
-    FileUtils.rm_rf(target_dir)
-    #create md5 for each file in a folder
-    DirToXml.generatemd5(temp_location)
+    ingest_files(object_path, temp_location, 'jp2',object)
+    ingest_files(object_path, temp_location, 'tiff',object)
+    # ingest_files(object_path, temp_location, 'mets')
+    # ingest_files(object_path, temp_location, 'pdf') if Dir.glob("#{object_path}/**/*.pdf").count > 0
     File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
     noid = Utils.noid
     metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>object}
     File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
     update = "UPDATE digitization_noids set noid = '#{noid}' where object_name = '#{object}'"
     File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
-  #end
+    end
 
 
 
@@ -146,6 +138,7 @@ def generic(opts, mysql_connection)
 
   end
 end
+
 
 
 
@@ -204,25 +197,25 @@ end
   # puts "xml correct" if valid
   # logger.error "Error when creating file list for #{dir}" if !valid
   # puts "xml wrong" if !valid
-  #Validate bag
-  unless skip_bag
-    logger.info "Start to valid bags in the delivery"
-    bagcount = Dir.glob(dir+"/**/bagit.txt").count
-    logger.info "Validate #{bagcount} bag directories in the delivery"
-    validate_bag(dir)
-    Dir.glob(dir+"/**/bagit.txt") do |f|
-      d = File.dirname(f)
-      bag_valid = validate_bag(d)
-      if bag_valid
-        logger.info "Directory #{d} is a valid bag"
-        FileUtils.touch (d +'/bag_verified')
-      else
-        logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
-        FileUtils.touch (d+'/bag_not_verified')
-      end
-    end
-    puts "bag finish"
-  end
+  # #Validate bag
+  # unless skip_bag
+  #   logger.info "Start to valid bags in the delivery"
+  #   bagcount = Dir.glob(dir+"/**/bagit.txt").count
+  #   logger.info "Validate #{bagcount} bag directories in the delivery"
+  #   validate_bag(dir)
+  #   Dir.glob(dir+"/**/bagit.txt") do |f|
+  #     d = File.dirname(f)
+  #     bag_valid = validate_bag(d)
+  #     if bag_valid
+  #       logger.info "Directory #{d} is a valid bag"
+  #       FileUtils.touch (d +'/bag_verified')
+  #     else
+  #       logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
+  #       FileUtils.touch (d+'/bag_not_verified')
+  #     end
+  #   end
+  #   puts "bag finish"
+  # end
   #Checkin to the database
   logger.info "Checkin the delivery into the tracking database"
   connection = Helpers.set_mysql_connection
@@ -235,8 +228,8 @@ end
   elsif type == "generic"
     generic(options, connection)
   end
-  # Helpers.close_mysql_connection(connection)
-  # #Upload to jeoffry
+  Helpers.close_mysql_connection(connection)
+  #Upload to jeoffry
   # Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
   #   # upload a file or directory to the remote host
   #   if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/var/peel-scripts-ruby/upload")

@@ -71,15 +71,16 @@ def ingest_files(issue_path, saved_location, file_type)
   when "pdf", "jp2"
     files = Dir.glob(issue_path+"/**/*."+file_type.downcase)
   when "tiff"
-    files = Dir.glob(issue_path+"**/*.tiff")
+    files = Dir.glob(issue_path+"**/*.tif")
   when "alto"
     #files = Dir.glob(issue_path+"**/ALTO/*.xml")
-    files = Dir.glob(issue_path+"/**/*.xml").grep(/[^e].xml/)
-    #files = Dir.glob(issue_path+'**/*').grep("*"+/\/\d\d\d\d\.xml/)
+    #files = Dir.glob(issue_path+"/**/*.xml").grep(/[^e].xml/)
+    files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\d\.xml/)
   when "mets"
     #files = Dir.glob(issue_path+"**/*-METS.xml")
     #files = Dir.glob(issue_path+"/**/articles_*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
-    files = Dir.glob(issue_path+"/**/*article.xml") + Dir.glob(issue_path+"/**/*issue.xml")
+    #files = Dir.glob(issue_path+"/**/*article.xml") + Dir.glob(issue_path+"/**/*issue.xml")
+    files = Dir.glob(issue_path+"/**/articles_*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
   end
   create_bag(target_dir, files, false)
   Utils.tar(File.join(saved_location, "#{file_type.downcase}.tar"), "#{target_dir}")
@@ -161,40 +162,40 @@ def newspaper(opts, mysql_connection)
   #   folders.push(folder)
   # end
   #puts folders
-  Dir.glob("#{dir}/**/*article.xml") do |f|
+  Dir.glob("#{dir}/**/article*.xml") do |f|
     puts f
-    issuename= File.basename(f).split(".").first.split("_")[1]
-    puts "我真TMD天才　#{issuename}"
-    #if not folders.include?(issuename)
-    issue_path = File.dirname(f)
-    issue = issue_path.split("/")
-    #puts issue
-    pagecount = Dir.glob("#{issue_path}/**/*.jp2").count
-    date = issue[-1]
-    puts date
-    month = issue[-2]
-    puts month
-    year = issue[-3]
-    puts year
-    edition= "01"
-
-    insert = "INSERT INTO newspapers_copy(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
-    puts insert
-    temp_dir = 'upload_WestCanadian4'
-    temp_location = File.join(temp_dir, issuename)
-    puts temp_location
-    ingest_files(issue_path, temp_location, 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0
-    ingest_files(issue_path, temp_location, 'tiff') if Dir.glob("#{issue_path}/**/*.tiff").count > 0
-    ingest_files(issue_path, temp_location, 'alto')
-    ingest_files(issue_path, temp_location, 'mets')
-    ingest_files(issue_path, temp_location, 'pdf') if Dir.glob("#{issue_path}/**/*.pdf").count > 0
-    File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
-    noid = Utils.noid
-    metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
-    File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
-    update = "UPDATE newspapers_copy set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
-    File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
-  # end
+  issuename= File.basename(f).split(".").first.split("_")[1]
+  puts "我真TMD天才　#{issuename}"
+  #   #if not folders.include?(issuename)
+  issue_path = File.dirname(f)
+  #   issue = issue_path.split("/")
+  #   #puts issue
+  pagecount = Dir.glob("#{issue_path}/**/*.jp2").count
+  date = issuename[6,2]
+  puts date
+  month = issuename[4,2]
+  puts month
+  year = issuename[0,4]
+  puts year
+  edition= issuename[8,2]
+  puts edition
+  insert = "INSERT INTO newspapers(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
+  puts insert
+  temp_dir = 'upload_loc'
+  temp_location = File.join(temp_dir, issuename)
+  puts temp_location
+  ingest_files(issue_path, temp_location, 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0
+  ingest_files(issue_path, temp_location, 'tiff') if Dir.glob("#{issue_path}/**/*.tif").count > 0
+  ingest_files(issue_path, temp_location, 'alto')
+  ingest_files(issue_path, temp_location, 'mets')
+  ingest_files(issue_path, temp_location, 'pdf') if Dir.glob("#{issue_path}/**/*.pdf").count > 0
+  File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
+  noid = Utils.noid
+  metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
+  File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
+  update = "UPDATE newspapers set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
+  File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
+  # # end
   # puts "all #{issuename}"
  end
 end

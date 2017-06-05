@@ -62,7 +62,7 @@ def mysql_query(connection,query)
   end
 end
 
-def ingest_files(issue_path, saved_location, file_type,object)
+def ingest_files(issue_path, saved_location, file_type)
   target_dir = File.join(saved_location, file_type.upcase)
   FileUtils::mkdir_p target_dir
   issue = issue_path.split("/").last
@@ -71,7 +71,7 @@ def ingest_files(issue_path, saved_location, file_type,object)
     #files = Dir.glob(issue_path+"/**/*."+file_type.downcase)
     files = Dir.glob(issue_path+"/**/#{object}.jp2")
   when "tiff"
-    files = Dir.glob(issue_path+"/**/#{object}.tif")
+    files = Dir.glob(issue_path+"/**/*.tif")
     #files = Dir.glob(issue_path+"/**/*.tif")
   when "alto"
     files = Dir.glob(issue_path+"**/ALTO/*.xml")
@@ -83,9 +83,9 @@ def ingest_files(issue_path, saved_location, file_type,object)
     #files = Dir.glob(issue_path+"/**/articles_*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
   end
   create_bag(target_dir, files, false)
-  Utils.tar(File.join(saved_location, "#{file_type.downcase}.tar"), "#{target_dir}")
+  Utils.tar(File.join(saved_location, "1.tar"), "#{target_dir}")
   #delete untar file
-  #FileUtils.rm_rf(target_dir)
+  FileUtils.rm_rf(target_dir)
   #create md5 for each file in a folder
   DirToXml.generatemd5(saved_location)
 end
@@ -108,7 +108,7 @@ def generic(opts, mysql_connection)
   Dir.glob("#{dir}/**/manifest-md5.txt") do |d|
     puts d
     # object = File.basename(d).split(".").first
-    object = File.dirname(d).split("/")[-2]
+    object = File.dirname(d).split("/")[-1]
     object_path = File.dirname(d)
     puts object
     puts object_path
@@ -117,10 +117,10 @@ def generic(opts, mysql_connection)
     temp_dir = "upload_CHN"
     temp_location = File.join(temp_dir, object)
     puts temp_location
-    #ingest_files(object_path, temp_location, 'jp2',object)
-    ingest_files(object_path, temp_location, 'tiff',object)
-    # ingest_files(object_path, temp_location, 'mets')
-    # ingest_files(object_path, temp_location, 'pdf') if Dir.glob("#{object_path}/**/*.pdf").count > 0
+    # #ingest_files(object_path, temp_location, 'jp2',object)
+    ingest_files(object_path, temp_location, 'tiff')
+    # # ingest_files(object_path, temp_location, 'mets')
+    # # ingest_files(object_path, temp_location, 'pdf') if Dir.glob("#{object_path}/**/*.pdf").count > 0
     File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
     noid = Utils.noid
     metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>object}
@@ -181,38 +181,38 @@ end
   logfile = "log/local-#{last_dir}-#{timestamp}"
   logger = Logger.new(logfile)
   logger.info "Start Ingest the directory #{dir}"
-  # #Virus Scanning
-  # logger.info "Start scanning the directory for virus"
-  # scan_result = antivirus_scan(dir)
-  # logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
-  # logger.info scan_result.to_s
+  #Virus Scanning
+  logger.info "Start scanning the directory for virus"
+  scan_result = antivirus_scan(dir)
+  logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
+  logger.info scan_result.to_s
   #Generating filelist
-  # logger.info "Generating list of files within the directory #{dir}"
-  # generate_filelist(dir, file_list)
-  # valid = DirToXml.validation(dir, file_list)
-  # logger.info "Successfully generated a file list at #{file_list}" if valid
-  # puts "xml correct" if valid
-  # logger.error "Error when creating file list for #{dir}" if !valid
-  # puts "xml wrong" if !valid
-  # #Validate bag
-  # unless skip_bag
-  #   logger.info "Start to valid bags in the delivery"
-  #   bagcount = Dir.glob(dir+"/**/bagit.txt").count
-  #   logger.info "Validate #{bagcount} bag directories in the delivery"
-  #   validate_bag(dir)
-  #   Dir.glob(dir+"/**/bagit.txt") do |f|
-  #     d = File.dirname(f)
-  #     bag_valid = validate_bag(d)
-  #     if bag_valid
-  #       logger.info "Directory #{d} is a valid bag"
-  #       FileUtils.touch (d +'/bag_verified')
-  #     else
-  #       logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
-  #       FileUtils.touch (d+'/bag_not_verified')
-  #     end
-  #   end
-  #   puts "bag finish"
-  # end
+  logger.info "Generating list of files within the directory #{dir}"
+  generate_filelist(dir, file_list)
+  valid = DirToXml.validation(dir, file_list)
+  logger.info "Successfully generated a file list at #{file_list}" if valid
+  puts "xml correct" if valid
+  logger.error "Error when creating file list for #{dir}" if !valid
+  puts "xml wrong" if !valid
+  #Validate bag
+  unless skip_bag
+    logger.info "Start to valid bags in the delivery"
+    bagcount = Dir.glob(dir+"/**/bagit.txt").count
+    logger.info "Validate #{bagcount} bag directories in the delivery"
+    validate_bag(dir)
+    Dir.glob(dir+"/**/bagit.txt") do |f|
+      d = File.dirname(f)
+      bag_valid = validate_bag(d)
+      if bag_valid
+        logger.info "Directory #{d} is a valid bag"
+        FileUtils.touch (d +'/bag_verified')
+      else
+        logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
+        FileUtils.touch (d+'/bag_not_verified')
+      end
+    end
+    puts "bag finish"
+  end
   #Checkin to the database
   logger.info "Checkin the delivery into the tracking database"
   connection = Helpers.set_mysql_connection

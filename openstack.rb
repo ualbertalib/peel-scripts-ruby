@@ -23,19 +23,48 @@ module Openstack
   end
 
 
+  # def self.ingest_generic(file, metadata)
+  #   properties = YAML.load_file('properties.yml')
+  #   checksum = Digest::MD5.hexdigest(file)
+  #   size = File.size(file)
+  #   noid = metadata['noid']
+  #   collection = metadata['collection']
+  #   file_name = metadata['file_name']
+  #   extension = File.extname(file)
+  #   file_type = File.basename(file).split('.').first
+  #   openstack_swift_url = properties["openstack_swift_url"]
+  #   put_url = "#{openstack_swift_url}/digitization/#{noid}/1#{extension}"
+  #   put_location = "#{noid}/1#{extension}"
+  #   swift_cmd =  "swift upload -H \"X-Object-Meta-Collection: #{collection}\" -H \"X-Object-Meta-filename: #{file_name}\" digitization #{file} --object-name=#{put_location}"
+  #   puts swift_cmd
+  #   stdin, stdout, stderr = Open3.capture3(swift_cmd)
+  #   puts stdin
+  #   puts stdout
+  #   puts stderr
+  # end
+
   def self.ingest_generic(file, metadata)
-    properties = YAML.load_file('properties.yml')
     checksum = Digest::MD5.hexdigest(file)
     size = File.size(file)
     noid = metadata['noid']
     collection = metadata['collection']
     file_name = metadata['file_name']
     extension = File.extname(file)
-    file_type = File.basename(file).split('.').first
+    if extension == ".tar"
+      file_type = File.basename(file).split('.').first
+    elsif extension == ".pdf"
+      file_type = "pdf"
+    end
+    properties = YAML.load_file('properties.yml')
+    user = properties["OS_USERNAME"]
+    password = properties["OS_PASSWORD"]
+    tenant = properties["OS_TENANT"]
+    auth_url = properties["OS_AUTH_URL"]
     openstack_swift_url = properties["openstack_swift_url"]
-    put_url = "#{openstack_swift_url}/digitization/#{noid}/1#{extension}"
-    put_location = "#{noid}/1#{extension}"
-    swift_cmd =  "swift upload -H \"X-Object-Meta-Collection: #{collection}\" -H \"X-Object-Meta-filename: #{file_name}\" digitization #{file} --object-name=#{put_location}"
+    put_url = "#{openstack_swift_url}/digitization/#{noid}/#{file_type}/1#{extension}"
+    put_location = "#{noid}/#{file_type}/1#{extension}"
+    #swift_cmd = "swift upload -H \"X-Object-Meta-Collection: #{collection}\" -H \"X-Object-Meta-filename: #{file_name}\" digitization -S 1073741824 #{file} --object-name=#{put_location}
+    swift_cmd =  "swift upload -H \"X-Object-Meta-Collection: #{collection}\" -H \"X-Object-Meta-filename: #{file_name}\" digitization -S 1073741824 #{file} --object-name=#{put_location}"
     puts swift_cmd
     stdin, stdout, stderr = Open3.capture3(swift_cmd)
     puts stdin
@@ -121,7 +150,7 @@ module Openstack
     openstack_swift_url = properties["openstack_swift_url"]
     put_url = "#{openstack_swift_url}/steele/#{noid}/#{file_type}/1#{extension}"
     put_location = "#{noid}/#{file_type}/1#{extension}"
-    swift_cmd =  "swift upload -H \"X-Object-Meta-Steele: #{steelenum}\" digitization #{file} --object-name=#{put_location}"
+    swift_cmd =  "swift upload -H \"X-Object-Meta-Steele: #{steelenum}\" steele #{file} --object-name=#{put_location}"
     puts swift_cmd
     stdin, stdout, stderr = Open3.capture3(swift_cmd)
     puts stdin

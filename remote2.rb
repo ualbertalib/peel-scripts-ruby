@@ -82,7 +82,7 @@ skip_bag = options[:skipbag]
 #logger.info "Start check if upload Successfully"
 #check if tar file changes
 connection = Helpers.set_mysql_connection
-Dir.glob("/diginit/work/upload/air/**/tarlist.xml") do |f|
+Dir.glob("/diginit/work/upload/arial/**/tarlist.xml") do |f|
   puts f
   tar_path = File.dirname(f)
   folder = tar_path.split("/").last
@@ -116,8 +116,13 @@ Dir.glob("/diginit/work/upload/air/**/tarlist.xml") do |f|
       Openstack.ingest_steele(f, metadata)
     end
 
+  # elsif type == "generic"
+  #   Openstack.ingest_generic("#{tar_path}/1.tar", metadata)
+  # end
   elsif type == "generic"
-    Openstack.ingest_generic("#{tar_path}/1.tar", metadata)
+    Dir.glob("#{tar_path}/*.tar") do |f|
+      Openstack.ingest_generic(f, metadata)
+    end
   end
   #update the database
   File.open(File.join(tar_path,'update.txt')).each do |line|
