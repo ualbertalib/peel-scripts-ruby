@@ -4,11 +4,11 @@ This is a script written in Ruby to handle the ingest of digitized objects to Op
 
 ### Available Variables:
 * ```-t (or --resource-type)```: Type of resource is to be ingested (peelbib, newspaper, generic) - To be added: steele, airphotos etc.
-* ```-dry (or --dry-run)```: To test run the script without updating database or ingesting into storage
-* ```-d (or --directory)```: Directory that need to be ingested
+* ```-r (or --dry-run)```: To test run the script without updating database or ingesting into storage
+* ```-f (or --directory)```: Directory that need to be ingested
 * ```-l (or --file-list)```: The script will generate a complete list of all files in the delivery with MD5 hashes in the directory: deliveries/. This is the filename of the list
-* ```-delivery```: This is the delivery number that this ingest batch will be logged in the database
-* ```-drive (or --drive-id)```: This is the last four digits of the hard drive ID this delivery is on.
+* ```-d (or --delivery)```: This is the delivery number that this ingest batch will be logged in the database
+* ```-i (or --drive-id)```: This is the last four digits of the hard drive ID this delivery is on.
 * ```-p (or --publication)```: This is the three digit publication code for newspapers and magazines
 * ```-c (or --collection)```: Collection name that this ingest batch belongs to, it's used for generic digitized materials
 * ```-b (or --skipbag)```: Skip checking bags if the delivery is a valid bag. '
@@ -31,15 +31,36 @@ And database.yml.template and properties.yml.template need to be updated with va
 
 To ingest newspaper:
 ```
-ruby ingest.rb -t newspaper -d /The_drive/ShipmentSample/ -p LEM -delivery westcan-frenews -drive 2648 -l deliveries/westcan-lem.xml
+ruby ingest.rb -t newspaper -f /The_drive/ShipmentSample/ -p LEM -d westcan-frenews -i 2648 -l deliveries/westcan-lem.xml
 ```
 
 To ingest peelbib:
 ```
-ruby ingest.rb -t peelbib -d /The_drive/ShipmentSample/ -drive 8093 -l deliveries/shipmentSample.xml -delivery bkstg0036
+ruby ingest.rb -t peelbib -f /The_drive/ShipmentSample/ -i 8093 -l deliveries/shipmentSample.xml -d bkstg0036
 ```
 
-### To-Do
-* To documenent the details to run the script.
-* To ingest Steele materials
-* Complete the documentation for ingesting the generic objects.
+////////////////////////////////Update 2017-06-06/////////////////////////////////////////
+The process is separated into two parts.
+
+Local part is run on the local desktop to ingest files from hard disk, 
+create bags for each item and create files containing query to update the tracking records in peel_blitz database. 
+There are general files called local.rb, local1.rb. They should works for most of the situations. 
+
+Some scripts are designed for some sepecific objects. Thery are called local_(object_name).rb. 
+After the hard disk is generated. The ingested files are localed in the current folder and the 
+filder name can be mmotified in code.
+
+Usage: ruby local.rb -t TYPE_OF_FILE -f THE_FILDER_TO_INGEST_FILE_FROM -p NEWSPAPER PUBLICATION -d DELIVERY -i HARD_DRIVE_ID -l DELIVERY_FILE_NAME
+
+After ingested the files from hard disk. You can upload the ingested folder to jeoffry by run
+
+ruby upload.rb
+
+you can modify upload.rb to change the file path.
+
+The second part of the process is called remote part. These part is run on Jeoffry located in /var/peel-scripts-ruby
+This part upload the files onto Openstack and update the database to track these files.
+
+Usage ruby remote.rb -t TYPE_OF_OBJECT
+
+
