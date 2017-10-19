@@ -102,7 +102,7 @@ def generic(opts, mysql_connection)
   delivery = opts[:delivery]
   dryrun = opts[:dryrun]
   collection = opts[:collection]
-  Dir.glob("#{dir}/**/*.mov") do |d|
+  Dir.glob("#{dir}/**/*.mov") do |d|#look for all the MOV files
     object = File.basename(d).split(".").first
     object_path = dir
     puts object
@@ -118,7 +118,7 @@ def generic(opts, mysql_connection)
     create_bag(target_dir, files, false)
     Utils.tar(File.join(temp_location, "1.tar"), "#{target_dir}")
     #delete untar file
-    #FileUtils.rm_rf(target_dir)
+    FileUtils.rm_rf(target_dir)
     #create md5 for each file in a folder
     DirToXml.generatemd5(temp_location)
     File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
