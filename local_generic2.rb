@@ -102,24 +102,23 @@ def generic(opts, mysql_connection)
   delivery = opts[:delivery]
   dryrun = opts[:dryrun]
   collection = opts[:collection]
-  Dir.glob("#{dir}/**/*.tif") do |d|
+  Dir.glob("#{dir}/**/*.mov") do |d|
     object = File.basename(d).split(".").first
     object_path = dir
     puts object
     puts object_path
     insert = "INSERT INTO digitization_noids(object_name, collection, delivery) VALUES ('#{object}', '#{collection}', '#{delivery}') ON DUPLICATE KEY UPDATE collection=VALUES(collection) delivery=VALUES(delivery) "
     puts insert
-    # # properties = Helpers.read_properties('properties.yml')
-    temp_dir = "upload2"
+    temp_dir = "upload_noso"
     temp_location = File.join(temp_dir, object)
     puts temp_location
-    target_dir = File.join(temp_location,"MIX")
+    target_dir = File.join(temp_location,"MOV")
     FileUtils::mkdir_p target_dir
     files = Dir.glob(object_path+"/**/#{object}.*")
     create_bag(target_dir, files, false)
     Utils.tar(File.join(temp_location, "1.tar"), "#{target_dir}")
     #delete untar file
-    FileUtils.rm_rf(target_dir)
+    #FileUtils.rm_rf(target_dir)
     #create md5 for each file in a folder
     DirToXml.generatemd5(temp_location)
     File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
@@ -182,38 +181,38 @@ end
   logfile = "log/local-#{last_dir}-#{timestamp}"
   logger = Logger.new(logfile)
   logger.info "Start Ingest the directory #{dir}"
-  #Virus Scanning
-  logger.info "Start scanning the directory for virus"
-  scan_result = antivirus_scan(dir)
-  logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
-  logger.info scan_result.to_s
-  #Generating filelist
-  logger.info "Generating list of files within the directory #{dir}"
-  generate_filelist(dir, file_list)
-  valid = DirToXml.validation(dir, file_list)
-  logger.info "Successfully generated a file list at #{file_list}" if valid
-  puts "xml correct" if valid
-  logger.error "Error when creating file list for #{dir}" if !valid
-  puts "xml wrong" if !valid
-  #Validate bag
-  unless skip_bag
-    logger.info "Start to valid bags in the delivery"
-    bagcount = Dir.glob(dir+"/**/bagit.txt").count
-    logger.info "Validate #{bagcount} bag directories in the delivery"
-    validate_bag(dir)
-    Dir.glob(dir+"/**/bagit.txt") do |f|
-      d = File.dirname(f)
-      bag_valid = validate_bag(d)
-      if bag_valid
-        logger.info "Directory #{d} is a valid bag"
-        FileUtils.touch (d +'/bag_verified')
-      else
-        logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
-        FileUtils.touch (d+'/bag_not_verified')
-      end
-    end
-    puts "bag finish"
-  end
+  # #Virus Scanning
+  # logger.info "Start scanning the directory for virus"
+  # scan_result = antivirus_scan(dir)
+  # logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
+  # logger.info scan_result.to_s
+  # #Generating filelist
+  # logger.info "Generating list of files within the directory #{dir}"
+  # generate_filelist(dir, file_list)
+  # valid = DirToXml.validation(dir, file_list)
+  # logger.info "Successfully generated a file list at #{file_list}" if valid
+  # puts "xml correct" if valid
+  # logger.error "Error when creating file list for #{dir}" if !valid
+  # puts "xml wrong" if !valid
+  # #Validate bag
+  # unless skip_bag
+  #   logger.info "Start to valid bags in the delivery"
+  #   bagcount = Dir.glob(dir+"/**/bagit.txt").count
+  #   logger.info "Validate #{bagcount} bag directories in the delivery"
+  #   validate_bag(dir)
+  #   Dir.glob(dir+"/**/bagit.txt") do |f|
+  #     d = File.dirname(f)
+  #     bag_valid = validate_bag(d)
+  #     if bag_valid
+  #       logger.info "Directory #{d} is a valid bag"
+  #       FileUtils.touch (d +'/bag_verified')
+  #     else
+  #       logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
+  #       FileUtils.touch (d+'/bag_not_verified')
+  #     end
+  #   end
+  #   puts "bag finish"
+  # end
   #Checkin to the database
   logger.info "Checkin the delivery into the tracking database"
   connection = Helpers.set_mysql_connection

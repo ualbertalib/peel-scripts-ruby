@@ -74,10 +74,10 @@ def ingest_files(issue_path, saved_location, file_type)
   when "alto"
     #files = Dir.glob(issue_path+"**/ALTO/*.xml")
     #files = Dir.glob(issue_path+"/**/.....xml")
-    files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\d\.xml/)
+    files = Dir.glob(issue_path+'**/*.xml').grep(/[^METS].xml/)
   when "mets"
     #files = Dir.glob(issue_path+'**/*.xml').grep(/[^\/\d\d\d\d\.xml]/)
-    files = Dir.glob(issue_path+"/**/articles_*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
+    files = Dir.glob(issue_path+"/**/*METS.xml")
   end
   create_bag(target_dir, files, false)
   Utils.tar(File.join(saved_location, "#{file_type.downcase}.tar"), "#{target_dir}")
@@ -103,40 +103,31 @@ def newspaper(opts, mysql_connection)
   delivery = opts[:delivery]
   drive_id = opts[:drive_id]
   dryrun = opts[:dryrun]
-  Dir.glob("#{dir}/**/articles_*.xml") do |f|
-    puts f
+  Dir.glob("#{dir}/**/*METS.xml") do |f|
+    #puts f
     issue_path = File.dirname(f)
+    puts issue_path
     issue = issue_path.split("/").last
-    puts issue[0,8]
-    year = issue[0,4]
-    month = issue[4,2]
-    date = issue[6,2]
-    pagecount = Dir.glob("#{issue_path}/**/*.jp2").count
-    section = issue_path.split("/")[-2]
-    puts section
-    if section[-1]=="A"
-      edition="01"
-    elsif section[-1]=="B"
-      edition="02"
-    elsif section[-1]=="C"
-      edition="03"
-    elsif section[-1]=="04"
-      edition="04"
-    else
-      edition="01"
-    end
+    #puts issue
+    publication=issue[0,3]
+    puts publication
+    year = issue[4,4]
+    month = issue[8,2]
+    date = issue[10,2]
+    edition = '01'
+    puts year
+    puts month
+    puts date
     puts edition
-
-
-    insert = "INSERT INTO newspapers(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
+    pagecount = Dir.glob("#{issue_path}/*.jp2").count
+    insert = "INSERT INTO newspapers(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date}, #{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
     puts insert
-    # properties = Helpers.read_properties('properties.yml')
-    temp_dir = 'upload_lbt'
+    temp_dir = 'upload_news3'
     temp_location = File.join(temp_dir, "#{issue}"+"#{edition}")
     puts temp_location
     puts "---------------------------------"
     ingest_files(issue_path, temp_location, 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0
-    ingest_files(issue_path, temp_location, 'tiff') if Dir.glob("#{issue_path}/**/*.tif").count > 0
+#     ingest_files(issue_path, temp_location, 'tiff') if Dir.glob("#{issue_path}/**/*.tif").count > 0
     ingest_files(issue_path, temp_location, 'alto')
     ingest_files(issue_path, temp_location, 'mets')
     ingest_files(issue_path, temp_location, 'pdf') if Dir.glob("#{issue_path}/**/*.pdf").count > 0
@@ -144,10 +135,10 @@ def newspaper(opts, mysql_connection)
     noid = Utils.noid
     metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
     File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
-    update = "UPDATE newspapers set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}' and edition = #{edition}"
+    update = "UPDATE newspapers set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}' and edition=1"
     #write into a file instead of execute in the database
     File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
-
+#
  end
 end
 

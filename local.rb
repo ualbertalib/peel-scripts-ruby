@@ -77,8 +77,8 @@ def ingest_files(issue_path, saved_location, file_type)
     #files = Dir.glob(issue_path+"/**/*.xml").grep(/[^METS].xml/)
     #files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\d\.xml/)
   when "mets"
-    files = Dir.glob(issue_path+"**/*-METS.xml")
-    #files = Dir.glob(issue_path+"/**/articles_*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
+    #files = Dir.glob(issue_path+"**/*-METS.xml")
+    files = Dir.glob(issue_path+"**/*article.xml")
   end
   create_bag(target_dir, files, false)
   Utils.tar(File.join(saved_location, "#{file_type.downcase}.tar"), "#{target_dir}")

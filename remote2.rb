@@ -5,6 +5,7 @@ require 'fileutils'
 require 'bagit'
 require 'net/sftp'
 require 'optparse'
+require 'nokogiri'
 
 
 def mysql_query(connection,query)
@@ -82,13 +83,20 @@ skip_bag = options[:skipbag]
 #logger.info "Start check if upload Successfully"
 #check if tar file changes
 connection = Helpers.set_mysql_connection
-Dir.glob("/diginit/work/upload/arial/**/tarlist.xml") do |f|
+Dir.glob("/diginit/work/upload/va2/**/tarlist.xml") do |f|
   puts f
   tar_path = File.dirname(f)
   folder = tar_path.split("/").last
   puts folder
   DirToXml.md5remote(tar_path)
-  if FileUtils.compare_file(File.join(tar_path,'tarlist.xml'),File.join(tar_path, 'tarlist2.xml'))
+  file1 = File.join(tar_path,'tarlist.xml')
+  file2 = File.join(tar_path,'tarlist2.xml')
+  doc1 = Nokogiri::XML(File.open(file1))
+  doc2 = Nokogiri::XML(File.open(file2))
+  checksum1 = doc1.xpath("//md5/text()")
+  checksum2 = doc2.xpath("//md5/text()")
+
+  if checksum1==checksum2
     puts "#{folder}: file transfer correct"
     #logger.info "#{folder}: file transfer correct"
   else
