@@ -83,7 +83,7 @@ skip_bag = options[:skipbag]
 #logger.info "Start check if upload Successfully"
 #check if tar file changes
 connection = Helpers.set_mysql_connection
-Dir.glob("/diginit/work/upload/va2/**/tarlist.xml") do |f|
+Dir.glob("/diginit/work/upload/peel/**/tarlist.xml") do |f|
   puts f
   tar_path = File.dirname(f)
   folder = tar_path.split("/").last

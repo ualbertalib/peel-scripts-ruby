@@ -72,12 +72,12 @@ def ingest_files(issue_path, saved_location, file_type)
   when "tiff"
     files = Dir.glob(issue_path+"**/*.tiff")
   when "alto"
-    #files = Dir.glob(issue_path+"**/ALTO/*.xml")
-    files = Dir.glob(issue_path+"/**/*.xml").grep(/[^e].xml/)
+    files = Dir.glob(issue_path+"**/ALTO/*.xml")
+    #files = Dir.glob(issue_path+"/**/*.xml").grep(/[^e].xml/)
     #files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\d\.xml/)
   when "mets"
-    #files = Dir.glob(issue_path+"**/*-METS.xml")
-    files = Dir.glob(issue_path+"/**/*article.xml") + Dir.glob(issue_path+"/**/*issue.xml")
+    files = Dir.glob(issue_path+"**/*-METS.xml")
+    #files = Dir.glob(issue_path+"/**/*article.xml") + Dir.glob(issue_path+"/**/*issue.xml")
     #files = Dir.glob(issue_path+"/**/articles*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
   end
   create_bag(target_dir, files, false)
@@ -197,6 +197,7 @@ end
 
 
 def peel(opts, mysql_connection)
+  #puts "I a ds ajfhadslhfaslkdfjajslk hf;jas dfhald"
   dir = opts[:directory]
   puts dir
   delivery = opts[:delivery]
@@ -209,20 +210,20 @@ def peel(opts, mysql_connection)
     item = item_mets.split("-METS").first
     puts item
     #normalize P number to handle cases like 3021.12, instead of P003021.12
-    if !item.match(/^(N|P)(\d+)\.*.*/)
-      logger.info "The item name is not normalized"
-      number = item.match(/^(\d+)(\.*.*)/i)
-      one, two = number.captures
-      one = "%06d" % one.to_i
-      item = "P" + one + two
-      puts item
-    end
+    # if !item.match(/^(N|P)(\d+)\.*.*/)
+    #   logger.info "The item name is not normalized"
+    #   number = item.match(/^(\d+)(\.*.*)/i)
+    #   one, two = number.captures
+    #   one = "%06d" % one.to_i
+    #   item = "P" + one + two
+    #   puts item
+    # end
     pagecount = Dir.glob("#{item_path}/**/*.jp2").count
     insert = "INSERT INTO items(code, digstatus, delivery, scanimages) VALUES ('#{item}', 'digitized', '#{delivery}', '#{pagecount}') ON DUPLICATE KEY UPDATE code = VALUES(code), digstatus=VALUES(digstatus), delivery=VALUES(delivery), scanimages=VALUES(scanimages)"
     puts insert
     #result = mysql_query(mysql_connection, insert) unless dryrun#instead of select
     properties = Helpers.read_properties('properties.yml')
-    temp_dir = 'upload_peel'
+    temp_dir = 'upload_peel4'
     temp_location = File.join(temp_dir, item)
     puts temp_location
     ingest_files(item_path, temp_location, 'jp2') if Dir.glob("#{item_path}/**/*.jp2").count > 0

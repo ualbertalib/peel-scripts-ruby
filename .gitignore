@@ -11,3 +11,6 @@ backup/
 *.yml
 results/
 *.txt
+*.sh
+*.json
+UAL-PEE-0037/

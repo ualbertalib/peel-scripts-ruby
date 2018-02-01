@@ -64,23 +64,21 @@ end
 
 def ingest_files(issue_path, saved_location, file_type)
   target_dir = File.join(saved_location, file_type.upcase)
-  puts target_dir
   FileUtils::mkdir_p target_dir
   issue = issue_path.split("/").last
   case file_type
   when "pdf", "jp2"
     files = Dir.glob(issue_path+"/**/*."+file_type.downcase)
   when "tiff"
-    files = Dir.glob(issue_path+"**/*.tif")
+    files = Dir.glob(issue_path+"**/*.tiff")
   when "alto"
-    #files = Dir.glob(issue_path+"**/ALTO/*.xml")
+    files = Dir.glob(issue_path+"**/ALTO/*.xml")
     #files = Dir.glob(issue_path+"/**/*.xml").grep(/[^e].xml/)
-    files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\.xml/)
+    #files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\d\.xml/)
   when "mets"
-    #files = Dir.glob(issue_path+"**/*-METS.xml")
-    #files = Dir.glob(issue_path+"/**/articles_*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
+    files = Dir.glob(issue_path+"**/*-METS.xml")
     #files = Dir.glob(issue_path+"/**/*article.xml") + Dir.glob(issue_path+"/**/*issue.xml")
-    files = Dir.glob(issue_path+"/**/articles_*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
+    #files = Dir.glob(issue_path+"/**/articles*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
   end
   create_bag(target_dir, files, false)
   Utils.tar(File.join(saved_location, "#{file_type.downcase}.tar"), "#{target_dir}")
@@ -110,41 +108,42 @@ end
 #     issue_path = File.dirname(f)
 #     issue = issue_path.split("/").last
 #     puts issue
-#     # logger.error "invalid issue format" if issue !~ /^[0-9]{8,10}/
+#     logger.error "invalid issue format" if issue !~ /^[0-9]{8,10}/
 #     pagecount = Dir.glob("#{issue_path}/**/*.jp2").count
 #     year = issue.split("_").last.split(//).first(4).join
 #     date = issue.split("_").last.split(//).first(8).last(2).join.sub(/^0/,"")
 #     month = issue.split("_").last.split(//).first(6).last(2).join.sub(/^0/,"")
 #     edition = issue.split("_").last.split(//).last(2).join.sub(/^0/,"")
-#     #select = "SELECT noid from newspapers where newspaper = '#{publication}' AND year = '#{year}' AND month = '#{month}' and day = '#{date}' and edition = '#{edition}'"
-#     #puts select
-#     # result = mysql_query(mysql_connection, select)
-#     # noid = ''
-#     # result.each do |row|
-#     #   noid = row.first
-#     # end
-#     # if result.num_rows == 0
-#     insert = "INSERT INTO newspapers_copy(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date}, #{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
-#     puts insert
-#     #   #mysql_query(mysql_connection, insert) ALTO/*.xml"ALTO/*.xml"ALTO/*.xml" 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0
-#     #   ingest_files(issue_path, temp_location, 'tiff') if Dir.glob("#{issue_path}/**/*.tif").count > 0
-#     #   ingest_files(issue_path, temp_location, 'alto')
-#     #   ingest_files(issue_path, temp_location, 'mets')
-#     #   ingest_files(issue_path, temp_location, 'pdf')
-#     #   File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
-#     #   noid = Utils.noid
-#     #   metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
-#     #   # Dir.glob("#{temp_location}/*.*") do |f|
-#     #   #   Openstack.ingest_newspaper(f,metadata)
-#     #   # end
-#     #   update = "UPDATE newspapers_copy set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
-#     #   #mysql_query(mysql_connection, update) unless dryrun
-#     #   #write into a file instead of execute in the database
-#     #   File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
-#     #   #cleanup(temp_location)
-#     # else
-#     #   puts "There is a duplicated record in the database: check #{issue_path}"
-#     # end
+#     select = "SELECT noid from newspapers where newspaper = '#{publication}' AND year = '#{year}' AND month = '#{month}' and day = '#{date}' and edition = '#{edition}'"
+#     puts select
+#     result = mysql_query(mysql_connection, select)
+#     noid = ''
+#     result.each do |row|
+#       noid = row.first
+#     end
+#     if result.num_rows == 0
+#       insert = "INSERT INTO newspapers_copy(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES
+#        ('#{publication}', #{year}, #{month}, #{date}, #{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW())"
+#       puts insert
+#       #mysql_query(mysql_connection, insert) ALTO/*.xml"ALTO/*.xml"ALTO/*.xml" 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0
+#       ingest_files(issue_path, temp_location, 'tiff') if Dir.glob("#{issue_path}/**/*.tif").count > 0
+#       ingest_files(issue_path, temp_location, 'alto')
+#       ingest_files(issue_path, temp_location, 'mets')
+#       ingest_files(issue_path, temp_location, 'pdf')
+#       File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
+#       noid = Utils.noid
+#       metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
+#       # Dir.glob("#{temp_location}/*.*") do |f|
+#       #   Openstack.ingest_newspaper(f,metadata)
+#       # end
+#       update = "UPDATE newspapers_copy set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
+#       #mysql_query(mysql_connection, update) unless dryrun
+#       #write into a file instead of execute in the database
+#       File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
+#       #cleanup(temp_location)
+#     else
+#       puts "There is a duplicated record in the database: check #{issue_path}"
+#     end
 #   end
 # end
 
@@ -155,51 +154,50 @@ def newspaper(opts, mysql_connection)
   delivery = opts[:delivery]
   drive_id = opts[:drive]
   dryrun = opts[:dryrun]
-  folders=Array.new
-  # Dir.glob("upload_WestCanadian/**/tarlist.xml") do |f|
-  #   folder=File.dirname(f).split("/").last
-  #   #puts folder
-  #   folders.push(folder)
-  # end
-  #puts folders
-  Dir.glob("#{dir}/**/*METS.xml") do |f|
+  Dir.glob("#{dir}/**/*article.xml") do |f|
     puts f
-  issue_path = File.dirname(f)
-  issue = issue_path.split("/").last
-  puts issue
-  pagecount = Dir.glob("#{issue_path}/**/*.jp2").count
-  puts pagecount
-  year = issue[0,4]
-  puts year
-  month = issue[4,2]
-  puts month
-  date = issue[6,2]
-  puts date
-  edition= issue[8,2]
-  puts edition
-  insert = "INSERT INTO newspapers(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
-  puts insert
-  temp_dir = 'upload_gat'
-  temp_location = File.join(temp_dir, issue)
-  puts temp_location
-  ingest_files(issue_path, temp_location, 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0
-  ingest_files(issue_path, temp_location, 'tiff') if Dir.glob("#{issue_path}/**/*.tif").count > 0
-  ingest_files(issue_path, temp_location, 'alto')
-  ingest_files(issue_path, temp_location, 'mets')
-  ingest_files(issue_path, temp_location, 'pdf') if Dir.glob("#{issue_path}/**/*.pdf").count > 0
-  File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
-  noid = Utils.noid
-  metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
-  File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
-  update = "UPDATE newspapers set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
-  File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
-  # # end
-  # puts "all #{issuename}"
+    issue_path = File.dirname(f)
+    issuename = File.basename(f)
+    wholeissue = issuename.split(".").first
+    publication = issuename[0,2]
+    puts issue_path
+    puts issuename
+    puts publication
+    pagecount = Dir.glob("#{issue_path}/**/*.jp2").count
+    puts pagecount
+    year = issuename[3,4]
+    puts "year: #{year}"
+    month = issuename[7,2]
+    date = issuename[9,2]
+    # #edition = issue.split("_").last.split(//).last(2).join.sub(/^0/,"")
+    edition = 01
+    puts date
+    puts month
+    puts edition
+    insert = "INSERT INTO newspapers(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
+    puts insert
+    temp_dir = 'upload_pc'
+    temp_location = File.join(temp_dir, wholeissue)
+    puts temp_location
+    ingest_files(issue_path, temp_location, 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0
+    ingest_files(issue_path, temp_location, 'tiff') if Dir.glob("#{issue_path}/**/*.tiff").count > 0
+    ingest_files(issue_path, temp_location, 'alto')
+    ingest_files(issue_path, temp_location, 'mets')
+    ingest_files(issue_path, temp_location, 'pdf') if Dir.glob("#{issue_path}/**/*.pdf").count > 0
+    File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
+    noid = Utils.noid
+    metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
+    File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
+    update = "UPDATE newspapers set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}' and edition=1"
+    # write into a file instead of execute in the database
+    File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
+
  end
 end
 
 
 def peel(opts, mysql_connection)
+  #puts "I a ds ajfhadslhfaslkdfjajslk hf;jas dfhald"
   dir = opts[:directory]
   puts dir
   delivery = opts[:delivery]
@@ -212,20 +210,20 @@ def peel(opts, mysql_connection)
     item = item_mets.split("-METS").first
     puts item
     #normalize P number to handle cases like 3021.12, instead of P003021.12
-    if !item.match(/^(N|P)(\d+)\.*.*/)
-      logger.info "The item name is not normalized"
-      number = item.match(/^(\d+)(\.*.*)/i)
-      one, two = number.captures
-      one = "%06d" % one.to_i
-      item = "P" + one + two
-      puts item
-    end
+    # if !item.match(/^(N|P)(\d+)\.*.*/)
+    #   logger.info "The item name is not normalized"
+    #   number = item.match(/^(\d+)(\.*.*)/i)
+    #   one, two = number.captures
+    #   one = "%06d" % one.to_i
+    #   item = "P" + one + two
+    #   puts item
+    # end
     pagecount = Dir.glob("#{item_path}/**/*.jp2").count
     insert = "INSERT INTO items(code, digstatus, delivery, scanimages) VALUES ('#{item}', 'digitized', '#{delivery}', '#{pagecount}') ON DUPLICATE KEY UPDATE code = VALUES(code), digstatus=VALUES(digstatus), delivery=VALUES(delivery), scanimages=VALUES(scanimages)"
     puts insert
     #result = mysql_query(mysql_connection, insert) unless dryrun#instead of select
     properties = Helpers.read_properties('properties.yml')
-    temp_dir = "upload_peel2"
+    temp_dir = 'upload_postcard2'
     temp_location = File.join(temp_dir, item)
     puts temp_location
     ingest_files(item_path, temp_location, 'jp2') if Dir.glob("#{item_path}/**/*.jp2").count > 0
@@ -292,11 +290,36 @@ def generic(opts, mysql_connection)
   delivery = opts[:delivery]
   dryrun = opts[:dryrun]
   collection = opts[:collection]
-  Dir.glob("#{dir}/**/*.tif") do |d|
-    # object = File.basename(d)
+  Dir.glob("#{dir}/**/*.db") do |d|
+    object = File.basename(d)
+    object_id = object.split(".").first
+    puts object_id
+    normalized_object = object.gsub!(/[^0-9A-Za-z.\-]/, '_')# Dir.glob("#{temp_location}/*.*") do |f|
+    puts normalized_object
+    insert = "INSERT INTO digitization_noids(object_name, collection, delivery) VALUES ('#{object_id}', '#{collection}', '#{delivery}')"
+    #puts insert
+    properties = Helpers.read_properties('properties.yml')
+    temp_dir = "upload"
+    temp_location = File.join(temp_dir, object_id)
+    #puts temp_location
+    target_dir = File.join(temp_location,"TIF")
+    puts target_dir
     puts d
-    #normalized_object = object.gsub!(/[^0-9A-Za-z.\-]/, '_')# Dir.glob("#{temp_location}/*.*") do |f|
-    #puts normalized_object
+    files = Dir.glob(d)
+    FileUtils::mkdir_p target_dir
+    create_bag(target_dir, files, false)
+    Utils.tar(File.join(temp_location, "1.tar"), "#{target_dir}")
+    #delete untar file
+    FileUtils.rm_rf(target_dir)
+    #create md5 for each file in a folder
+    DirToXml.generatemd5(temp_location)
+    File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
+    noid = Utils.noid
+    metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>object_id}
+    File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
+    update = "UPDATE digitization_noids set noid = '#{noid}' where object_name = '#{object_id}'"
+    File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
+
 
 
 
@@ -352,28 +375,6 @@ end
 
 
 
-# This script is to ingest any given folder with digitized materials into OpenStack
-  # opts = Slop.parse do |o|
-  #   o.string '-t', '--resource-type', 'Type of resource is to be ingested (peelbib,newspaper, image, steele, other)'
-  #   o.bool '-dry', '--dry-run', 'Dry run of the ingest'
-  #   o.string '-d', '--directory', 'Directory that need to be ingested'
-  #   o.string '-l', '--file-list', 'File name of the file list output'
-  #   o.string '-delivery', '--delivery', 'Delivery number that this ingest batch will be logged in the database'
-  #   o.string '-drive', '--drive-id', 'last four digits of the hard drive ID this delivery is on'
-  #   o.string '-p', '--publication', 'Three digit publication code for newspaper and magazine'
-  #   o.string '-c', '--collection', 'Collection name that this ingest batch belongs to'
-  #   o.bool '-b', '--skipbag', 'Skip checking if the delivery is a valid bag'
-  # end
-  #
-  # puts opts.to_hash
-  # timestamp = Time.now.to_s.tr(" ", "_")
-  # dir = opts[:directory]
-  # file_list = opts[:file_list]
-  # last_dir = dir.split("/").last
-  # type = opts[:resource_type]
-  # dryrun = opts[:dry_run]
-  # collection = opts[:collection]
-  # skip_bag = opts[:skipbag]
   options = {}
   OptionParser.new do |opts|
     opts.on("-t", "--resource-type TYPE", "Type of resource is to be ingested (peelbib,newspaper, image, steele, other)") do |v|
@@ -461,7 +462,7 @@ end
     generic(options, connection)
   end
   Helpers.close_mysql_connection(connection)
-  # #Upload to jeoffry
+  #Upload to jeoffry
   # Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
   #   # upload a file or directory to the remote host
   #   if sftp.upload!("/home/baihong/peel-scripts-ruby/upload", "/var/peel-scripts-ruby/upload")
