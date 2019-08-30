@@ -39,7 +39,7 @@ To ingest peelbib:
 ruby ingest.rb -t peelbib -f /The_drive/ShipmentSample/ -i 8093 -l deliveries/shipmentSample.xml -d bkstg0036
 ```
 
-////////////////////////////////Update 2017-06-06/////////////////////////////////////////
+////////////////////////////////Update 2019-08-30/////////////////////////////////////////
 The process is separated into two parts.
 
 Local part is run on the local desktop to ingest files from hard disk, 
