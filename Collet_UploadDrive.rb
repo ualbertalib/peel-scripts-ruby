@@ -2,7 +2,7 @@ require "google_drive"
 session = GoogleDrive::Session.from_config("client_secret.json")
 count1=0
 count2=0
-Dir.glob("/media/baihong/My\ Passport/news/va2/VA_1956-1960/**/VA_*.pdf") do |f|
+Dir.glob("/media/baihong/My\ Passport/news/va2/VA_1961-1967/**/VA_*.pdf") do |f|
     puts f
     issuename = File.basename(f)
     puts issuename

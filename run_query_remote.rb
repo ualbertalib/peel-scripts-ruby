@@ -1,3 +1,4 @@
+# this is a script to execute the locally generated file and get a result
 require './helpers'
 require 'csv'
 def mysql_query(connection,query)
@@ -9,10 +10,10 @@ def mysql_query(connection,query)
   end
 end
 connection = Helpers.set_mysql_connection
-CSV.open("bkstg_result/Shipment_67_missing.csv", "wb") do |csv|
+CSV.open("bkstg_result/toclean", "wb") do |csv|
 count_exsit=0
 count_not_exsit=0
-File.read("path/to/file").each do |line|
+File.read("select_news.txt").each do |line|
   puts line
   #cmd="select * from items where code='#{item}' and noid IS NOT NULL\n"
   rs = mysql_query(connection, line)

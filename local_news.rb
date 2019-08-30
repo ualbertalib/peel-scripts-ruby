@@ -74,10 +74,12 @@ def ingest_files(issue_path, saved_location, file_type)
   when "alto"
     #files = Dir.glob(issue_path+"**/ALTO/*.xml")
     #files = Dir.glob(issue_path+"/**/.....xml")
-    files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\d\.xml/)
+    files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\.xml/)
+    #files = Dir.glob(issue_path+"/**/*.xml").grep(/[^e].xml/)
   when "mets"
-    files = Dir.glob(issue_path+"**/*1997121901.xml")
-    #files = Dir.glob(issue_path+"/**/articles_*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
+    files = Dir.glob(issue_path+"**/*METS.xml")
+    #files = Dir.glob(issue_path+"/**/articles*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
+    #files = Dir.glob(issue_path+"/**/*article.xml") + Dir.glob(issue_path + "/**/*issue.xml")
   end
   create_bag(target_dir, files, false)
   Utils.tar(File.join(saved_location, "#{file_type.downcase}.tar"), "#{target_dir}")
@@ -103,42 +105,41 @@ def newspaper(opts, mysql_connection)
   delivery = opts[:delivery]
   drive_id = opts[:drive_id]
   dryrun = opts[:dryrun]
-  Dir.glob("#{dir}/**/1997121901.xml") do |f|
+  Dir.glob("#{dir}/**/*METS.xml") do |f|
     puts f
     issue_path = File.dirname(f)
-    issue= "19971219"
-    puts issue_path
+    item=File.dirname(f).split("/").last
+    puts item
+    year=item[0,4]
+    month=item[4,2]
+    date=item[6,2]
+    edition=01
     pagecount = Dir.glob("#{issue_path}/**/*.jp2").count
     puts pagecount
-    year = 1997
-    puts "year: #{year}"
-    date = 19
-    month = 12
-    #edition = issue.split("_").last.split(//).last(2).join.sub(/^0/,"")
-    edition = 01
-    puts date
-    puts month
-    puts edition
+    #slt="select * from newspapers where newspaper='#{publication}' and year=#{year} and month=#{month} and day=#{date} and edition=#{edition} and noid IS NOT NULL\n"
     insert = "INSERT INTO newspapers(newspaper, year, month, day, edition, pages, delivery, delivery_disk, delivery_date) VALUES ('#{publication}', #{year}, #{month}, #{date},#{edition}, #{pagecount}, '#{delivery}', '#{drive_id}', NOW()) ON DUPLICATE KEY UPDATE  pages = VALUES(pages), delivery = VALUES(delivery), delivery_disk = VALUES(delivery_disk), delivery_date = VALUES(delivery_date) "
+    # puts slt
     puts insert
-    result = mysql_query(mysql_connection, insert) unless dryrun
+    #result = mysql_query(mysql_connection, insert) unless dryrun
     # properties = Helpers.read_properties('properties.yml')
-    temp_dir = 'upload_lib'
-    temp_location = File.join(temp_dir, issue)
+    temp_dir = "upload_#{publication}"
+    temp_location = File.join(temp_dir, item)
     puts temp_location
+    FileUtils::mkdir_p temp_location
     ingest_files(issue_path, temp_location, 'jp2') if Dir.glob("#{issue_path}/**/*.jp2").count > 0
     ingest_files(issue_path, temp_location, 'tiff') if Dir.glob("#{issue_path}/**/*.tif").count > 0
     ingest_files(issue_path, temp_location, 'alto')
     ingest_files(issue_path, temp_location, 'mets')
     ingest_files(issue_path, temp_location, 'pdf') if Dir.glob("#{issue_path}/**/*.pdf").count > 0
     File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
+    #File.open(File.join(temp_location,'select.txt'), 'w') { |file| file.write(slt) }
     noid = Utils.noid
     metadata = {"publication" => publication, "year"=> year, "month" => month, "date" => date, "noid" => noid }
     File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
     # Dir.glob("#{temp_location}/*.*") do |f|
     #   Openstack.ingest_newspaper(f,metadata)
     # end
-    update = "UPDATE newspapers set noid = '#{noid}' where newspaper = '#{publication}' and year = '#{year}' and month = '#{month}' and day = '#{date}'"
+    update = "UPDATE newspapers set noid = '#{noid}' where newspaper = '#{publication}' and year = #{year} and month = #{month} and day = #{date} and edition = #{edition}"
     #mysql_query(mysql_connection, update) unless dryrun
     #write into a file instead of execute in the database
     File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
@@ -191,39 +192,40 @@ end
   logfile = "log/local-#{last_dir}-#{timestamp}"
   logger = Logger.new(logfile)
   logger.info "Start Ingest the directory #{dir}"
-  #Virus Scanning
-  logger.info "Start scanning the directory for virus"
-  scan_result = antivirus_scan(dir)
-  logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
-  logger.info scan_result.to_s
-  #Generating filelist
-  logger.info "Generating list of files within the directory #{dir}"
-  generate_filelist(dir, file_list)
-  valid = DirToXml.validation(dir, file_list)
-  logger.info "Successfully generated a file list at #{file_list}" if valid
-  puts "xml correct" if valid
-  logger.error "Error when creating file list for #{dir}" if !valid
-  puts "xml wrong" if !valid
-  #Validate bag
-  unless skip_bag
-    logger.info "Start to valid bags in the delivery"
-    bagcount = Dir.glob(dir+"/**/bagit.txt").count
-    logger.info "Validate #{bagcount} bag directories in the delivery"
-    validate_bag(dir)
-    Dir.glob(dir+"/**/bagit.txt") do |f|
-      d = File.dirname(f)
-      bag_valid = validate_bag(d)
-      if bag_valid
-        logger.info "Directory #{d} is a valid bag"
-        FileUtils.touch (d +'/bag_verified')
-      else
-        logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
-        FileUtils.touch (d+'/bag_not_verified')
-      end
-    end
-    puts "bag finish"
-  end
-  #Checkin to the database
+  # #Virus Scanning
+  # logger.info "Start scanning the directory for virus"
+  # scan_result = antivirus_scan(dir)
+  # logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
+  # logger.info scan_result.to_s
+  # #Generating filelist
+  # logger.info "Generating list of files within the directory #{dir}"
+  # generate_filelist(dir, file_list)
+  # valid = DirToXml.validation(dir, file_list)
+  # logger.info "Successfully generated a file list at #{file_list}" if valid
+  # puts "xml correct" if valid
+  # logger.error "Error when creating file list for #{dir}" if !valid
+  # puts "xml wrong" if !valid
+  # #Validate bag
+  # unless skip_bag
+  #   logger.info "Start to valid bags in the delivery"
+  #   bagcount = Dir.glob(dir+"/**/bagit.txt").count
+  #   logger.info "Validate #{bagcount} bag directories in the delivery"
+  #   validate_bag(dir)
+  #   Dir.glob(dir+"/**/bagit.txt") do |f|
+  #     d = File.dirname(f)
+  #     bag_valid = validate_bag(d)
+  #     if bag_valid
+  #       logger.info "Directory #{d} is a valid bag"
+  #       FileUtils.touch (d +'/bag_verified')
+  #     else
+  #       logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
+  #       logger.error(validate_bag(dir))
+  #       FileUtils.touch (d+'/bag_not_verified')
+  #     end
+  #   end
+  #   puts "bag finish"
+  # end
+  # #Checkin to the database
   logger.info "Checkin the delivery into the tracking database"
   connection = Helpers.set_mysql_connection
   if type == "newspaper"

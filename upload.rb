@@ -4,7 +4,7 @@ Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrai
   # upload a file or directory to the remote host
   t1 = Time.now
   puts "in process uploading"
-  if sftp.upload!("/home/baihong/peel-scripts-ruby/upload_postcard2", "/diginit/work/upload/pc")
+  if sftp.upload!("/home/baihong/peel-scripts-ruby/upload_meta", "/diginit/work/upload/meta")
     puts "upload Finish"
     t2 = Time.now
     delta = t2 - t1

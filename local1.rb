@@ -67,16 +67,20 @@ def ingest_files(issue_path, saved_location, file_type)
   FileUtils::mkdir_p target_dir
   issue = issue_path.split("/").last
   case file_type
-  when "pdf", "jp2"
+  when "pdf"
     files = Dir.glob(issue_path+"/**/*."+file_type.downcase)
+  when "jp2","jpg"
+    #files = Dir.glob(issue_path+"/**/*."+file_type.downcase)
+    files = Dir.glob(issue_path+"/*."+file_type.downcase)+Dir.glob(issue_path+"/*."+file_type.upcase)
   when "tiff"
-    files = Dir.glob(issue_path+"**/*.tiff")
+    files = Dir.glob(issue_path+"**/*.tif")
+    #files = Dir.glob(issue_path+"/Output/Thumbnail/*.tif")
   when "alto"
     files = Dir.glob(issue_path+"**/ALTO/*.xml")
     #files = Dir.glob(issue_path+"/**/*.xml").grep(/[^e].xml/)
     #files = Dir.glob(issue_path+'**/*').grep(/\/\d\d\d\d\.xml/)
   when "mets"
-    files = Dir.glob(issue_path+"**/*-METS.xml")
+    files = Dir.glob(issue_path+"**/*.xml")
     #files = Dir.glob(issue_path+"/**/*article.xml") + Dir.glob(issue_path+"/**/*issue.xml")
     #files = Dir.glob(issue_path+"/**/articles*.xml") + Dir.glob(issue_path + "/**/" + issue + "*.xml")
   end
@@ -154,7 +158,7 @@ def newspaper(opts, mysql_connection)
   delivery = opts[:delivery]
   drive_id = opts[:drive]
   dryrun = opts[:dryrun]
-  Dir.glob("#{dir}/**/*article.xml") do |f|
+  Dir.glob("#{dir}/**/*.xml") do |f|
     puts f
     issue_path = File.dirname(f)
     issuename = File.basename(f)
@@ -197,39 +201,30 @@ end
 
 
 def peel(opts, mysql_connection)
-  #puts "I a ds ajfhadslhfaslkdfjajslk hf;jas dfhald"
   dir = opts[:directory]
   puts dir
   delivery = opts[:delivery]
   drive_id = opts[:drive]
   dryrun = opts[:dryrun]
-  Dir.glob("#{dir}/**/*-METS.xml") do |f|
+  Dir.glob("#{dir}/**/*.pdf") do |f|
     puts f
-    item_mets = File.basename(f)
+    # item_mets = File.basename(f)
     item_path = File.dirname(f)
-    item = item_mets.split("-METS").first
+    puts item_path
+    item = item_path.split("/")[-1]
     puts item
-    #normalize P number to handle cases like 3021.12, instead of P003021.12
-    # if !item.match(/^(N|P)(\d+)\.*.*/)
-    #   logger.info "The item name is not normalized"
-    #   number = item.match(/^(\d+)(\.*.*)/i)
-    #   one, two = number.captures
-    #   one = "%06d" % one.to_i
-    #   item = "P" + one + two
-    #   puts item
-    # end
-    pagecount = Dir.glob("#{item_path}/**/*.jp2").count
+    pagecount = Dir.glob("#{item_path}/*.tif").count
     insert = "INSERT INTO items(code, digstatus, delivery, scanimages) VALUES ('#{item}', 'digitized', '#{delivery}', '#{pagecount}') ON DUPLICATE KEY UPDATE code = VALUES(code), digstatus=VALUES(digstatus), delivery=VALUES(delivery), scanimages=VALUES(scanimages)"
     puts insert
-    #result = mysql_query(mysql_connection, insert) unless dryrun#instead of select
-    properties = Helpers.read_properties('properties.yml')
-    temp_dir = 'upload_peel4'
+    result = mysql_query(mysql_connection, insert) unless dryrun #instead of select
+    #properties = Helpers.read_properties('properties.yml')
+    temp_dir = 'upload_nonpeel'
     temp_location = File.join(temp_dir, item)
     puts temp_location
-    ingest_files(item_path, temp_location, 'jp2') if Dir.glob("#{item_path}/**/*.jp2").count > 0
+    # ingest_files(item_path, temp_location, 'jpg') #if Dir.glob("#{item_path}/*.jpg").count > 0
     ingest_files(item_path, temp_location, 'tiff') if Dir.glob("#{item_path}/**/*.tif").count > 0
-    ingest_files(item_path, temp_location, 'alto')
-    ingest_files(item_path, temp_location, 'mets')
+    # ingest_files(item_path, temp_location, 'alto')
+    # ingest_files(item_path, temp_location, 'mets')
     ingest_files(item_path, temp_location, 'pdf') if Dir.glob("#{item_path}/**/*.pdf").count > 0
     File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
     #logger.info "Ready to ingest #{item} into OpenStack"
@@ -241,7 +236,7 @@ def peel(opts, mysql_connection)
     # end
     update = "UPDATE items set noid = '#{noid}' where code = '#{item}'"
     File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
-    # mysql_query(mysql_connection, update) unless dryrun
+    mysql_query(mysql_connection, update) unless dryrun
     # cleanup(temp_location)
   end
 end
@@ -299,7 +294,7 @@ def generic(opts, mysql_connection)
     insert = "INSERT INTO digitization_noids(object_name, collection, delivery) VALUES ('#{object_id}', '#{collection}', '#{delivery}')"
     #puts insert
     properties = Helpers.read_properties('properties.yml')
-    temp_dir = "upload"
+    temp_dir = "upload_peel"
     temp_location = File.join(temp_dir, object_id)
     #puts temp_location
     target_dir = File.join(temp_location,"TIF")
@@ -422,46 +417,46 @@ end
   # scan_result = antivirus_scan(dir)
   # logger.info "Virus scanning completed, at #{scan_result.scanned_at}"
   # logger.info scan_result.to_s
-  # #Generating filelist
-  # logger.info "Generating list of files within the directory #{dir}"
-  # generate_filelist(dir, file_list)
-  # valid = DirToXml.validation(dir, file_list)
-  # logger.info "Successfully generated a file list at #{file_list}" if valid
-  # puts "xml correct" if valid
-  # logger.error "Error when creating file list for #{dir}" if !valid
-  # puts "xml wrong" if !valid
-  # #Validate bag
-  # unless skip_bag
-  #   logger.info "Start to valid bags in the delivery"
-  #   bagcount = Dir.glob(dir+"/**/bagit.txt").count
-  #   logger.info "Validate #{bagcount} bag directories in the delivery"
-  #   validate_bag(dir)
-  #   Dir.glob(dir+"/**/bagit.txt") do |f|
-  #     d = File.dirname(f)
-  #     bag_valid = validate_bag(d)
-  #     if bag_valid
-  #       logger.info "Directory #{d} is a valid bag"
-  #       FileUtils.touch (d +'/bag_verified')
-  #     else
-  #       logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
-  #       FileUtils.touch (d+'/bag_not_verified')
-  #     end
-  #   end
-  #   puts "bag finish"
-  # end
+  #Generating filelist
+  logger.info "Generating list of files within the directory #{dir}"
+  generate_filelist(dir, file_list)
+  valid = DirToXml.validation(dir, file_list)
+  logger.info "Successfully generated a file list at #{file_list}" if valid
+  puts "xml correct" if valid
+  logger.error "Error when creating file list for #{dir}" if !valid
+  puts "xml wrong" if !valid
+  #Validate bag
+  unless skip_bag
+    logger.info "Start to valid bags in the delivery"
+    bagcount = Dir.glob(dir+"/**/bagit.txt").count
+    logger.info "Validate #{bagcount} bag directories in the delivery"
+    validate_bag(dir)
+    Dir.glob(dir+"/**/bagit.txt") do |f|
+      d = File.dirname(f)
+      bag_valid = validate_bag(d)
+      if bag_valid
+        logger.info "Directory #{d} is a valid bag"
+        FileUtils.touch (d +'/bag_verified')
+      else
+        logger.error "Directory #{d} is not a valid bag, view log files for more detailed information"
+        FileUtils.touch (d+'/bag_not_verified')
+      end
+    end
+    puts "bag finish"
+  end
   #Checkin to the database
   logger.info "Checkin the delivery into the tracking database"
-  connection = Helpers.set_mysql_connection
-  if type == "newspaper"
-    newspaper(options, connection)
-  elsif type == "peel"
-    peel(options,connection)
-  elsif type == "steele"
-    steele(options,connection)
-  elsif type == "generic"
-    generic(options, connection)
-  end
-  Helpers.close_mysql_connection(connection)
+  # connection = Helpers.set_mysql_connection
+  # if type == "newspaper"
+  #   newspaper(options, connection)
+  # elsif type == "peel"
+  #   peel(options,connection)
+  # elsif type == "steele"
+  #   steele(options,connection)
+  # elsif type == "generic"
+  #   generic(options, connection)
+  # end
+  #Helpers.close_mysql_connection(connection)
   #Upload to jeoffry
   # Net::SFTP.start('jeoffry.library.ualberta.ca', 'baihong', :password => '100ofrainbows') do |sftp|
   #   # upload a file or directory to the remote host

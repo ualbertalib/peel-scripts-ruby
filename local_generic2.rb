@@ -102,16 +102,18 @@ def generic(opts, mysql_connection)
   delivery = opts[:delivery]
   dryrun = opts[:dryrun]
   collection = opts[:collection]
-  Dir.glob("#{dir}/**/*.mov") do |d|#look for all the MOV files
+  Dir.glob("#{dir}/**/*.wav") do |d|#look for all the MOV files
+    puts d
     object = File.basename(d).split(".").first
     object_path = dir
     puts object
     puts object_path
     insert = "INSERT INTO digitization_noids(object_name, collection, delivery) VALUES ('#{object}', '#{collection}', '#{delivery}') ON DUPLICATE KEY UPDATE collection=VALUES(collection) delivery=VALUES(delivery) "
     puts insert
-    temp_dir = "upload_noso"
+    temp_dir = "upload_manning"
     temp_location = File.join(temp_dir, object)
     puts temp_location
+
     target_dir = File.join(temp_location,"MOV")
     FileUtils::mkdir_p target_dir
     files = Dir.glob(object_path+"/**/#{object}.*")
@@ -121,19 +123,15 @@ def generic(opts, mysql_connection)
     FileUtils.rm_rf(target_dir)
     #create md5 for each file in a folder
     DirToXml.generatemd5(temp_location)
+
+
     File.open(File.join(temp_location,'insert.txt'), 'w') { |file| file.write(insert) }
     noid = Utils.noid
     metadata = {"noid"=> noid, "collection"=>collection, "file_name"=>object}
     File.open(File.join(temp_location,'metadata.marshal'), "w"){|to_file| Marshal.dump(metadata, to_file)}
     update = "UPDATE digitization_noids set noid = '#{noid}' where object_name = '#{object}'"
     File.open(File.join(temp_location,'update.txt'), 'w') { |file| file.write(update) }
-
-
-
-
-
-
-  endhttps://github.com/ualbertalib/peel-scripts-ruby/blob/baihong/local_generic2.rb
+ end
 end
 
 
