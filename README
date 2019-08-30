@@ -63,4 +63,6 @@ This part upload the files onto Openstack and update the database to track these
 
 Usage ruby remote.rb -t TYPE_OF_OBJECT
 
+download_honeycomb.rb download user requested files from preston
+
 
