@@ -37,7 +37,7 @@ ruby ingest.rb -t peelbib -d /The_drive/ShipmentSample/ -drive 8093 -l deliverie
 * Complete the documentation for ingesting the generic objects. 
 
   
-###To track shipping list
+### To track shipping list
   This is script that check the status of items listed in the shipping list. The reports includes:
   1. missing objects: report any object that is missing from the tracking database for each shipping list. insert missing objects into the tracking database with digstatus as shipped.
   2. mounted: For objects that are already in the tracking database,it includes all objects that have a digstatus:mounted. 
