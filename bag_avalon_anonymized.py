@@ -1,3 +1,13 @@
+'''
+This Program helps to download all media files (can further change)
+from the avalon server, create bag for each individual file, then
+upload to the OpenStack Swift (Avalon version) with its unique noid,
+and finally update the database.
+
+Set variables between line 27 to line 52 and run the code locally,
+then the process should automatically do its job.
+    python3 bag_avalon_anonymized.py
+'''
 import datetime
 import sys
 import shutil
@@ -14,10 +24,10 @@ from stat import S_ISDIR
 python_print = print
 video_audio_extension = ['wav', 'mov', 'MP4', 'flac', 'mp3', 'aiff', 'm4v', 'flv', 'MP3', 'mp4']
 
-user = "<Removed>"
-checksum = "<Removed>"
+user = "<Removed>"  # Your username on the local machine
+checksum = "<Removed>"  # A tuple of checksums
 
-swift_login = "<Removed>, should be avalon setting"
+swift_login = "<Removed>"  # should be avalon setting
 
 server_address = "<Removed>"
 server_username = "<Removed>"
