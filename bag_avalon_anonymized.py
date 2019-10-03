@@ -4,7 +4,7 @@ from the avalon server, create bag for each individual file, then
 upload to the OpenStack Swift (Avalon version) with its unique noid,
 and finally update the database.
 
-Set variables between line 27 to line 52 and run the code locally,
+Set variables between line 27 to line 50 and run the code locally,
 then the process should automatically do its job.
     python3 bag_avalon_anonymized.py
 '''
@@ -27,7 +27,14 @@ video_audio_extension = ['wav', 'mov', 'MP4', 'flac', 'mp3', 'aiff', 'm4v', 'flv
 user = "<Removed>"  # Your username on the local machine
 checksum = "<Removed>"  # A tuple of checksums
 
-swift_login = "<Removed>"  # should be avalon setting
+# Swift login info, can be found on the server
+swift_login = "--os-project-domain-name <REMOVED>" \
+              " --os-user-domain-name <REMOVED>" \
+              " --os-project-name <REMOVED>" \
+              " --os-username <REMOVED>" \
+              " --os-password <REMOVED>" \
+              " --os-auth-url <REMOVED>" \
+              " --os-identity-api-version <REMOVED>"  # should be avalon setting
 
 server_address = "<Removed>"
 server_username = "<Removed>"

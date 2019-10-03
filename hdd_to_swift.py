@@ -1,3 +1,14 @@
+'''
+This Program helps to make a copy of all files (can further change)
+from the local hard drive (with a specific folder name), create bag
+for each matched file name, then upload to the OpenStack Swift
+(Digitization version) with its unique noid, and finally update
+the database.
+
+Set variables between line 37 to line 57 and run the code locally,
+then the process should automatically do its job.
+    python3 hdd_to-swift.py
+'''
 import bagit
 import glob
 import shutil
@@ -40,7 +51,7 @@ def main():
 
     server_address = "<REMOVED>"
     server_username = "<REMOVED>"
-    server_port = None
+    server_port = 0
     noid_minter = "<REMOVED>"
     db_table_name = "<REMOVED>"
     collection = "<REMOVED>"
