@@ -20,11 +20,12 @@ import paramiko
 import hashlib
 import urllib.request
 from stat import S_ISDIR
+import getpass
 
 python_print = print
 video_audio_extension = ['wav', 'mov', 'MP4', 'flac', 'mp3', 'aiff', 'm4v', 'flv', 'MP3', 'mp4']
 
-user = "<Removed>"  # Your username on the local machine
+user = getpass.getuser()
 checksum = "<Removed>"  # A tuple of checksums
 
 # Swift login info, can be found on the server

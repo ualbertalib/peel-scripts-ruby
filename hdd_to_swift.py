@@ -19,6 +19,7 @@ import tarfile
 import paramiko
 import hashlib
 import urllib.request
+import getpass
 
 
 def md5(file_name):
@@ -34,7 +35,7 @@ def md5(file_name):
 
 
 def main():
-    user = "<REMOVED>"  # Machine login user
+    user = getpass.getuser()
     media = "<REMOVED>"  # HDD name
     main_folder = "<REMOVED>"  # Folder in HDD
     sub_folder = ("<REMOVED>",)  # Target folders in main_folder
